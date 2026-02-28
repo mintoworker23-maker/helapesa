@@ -1,0 +1,4 @@
+[31-Jan-2026 09:08:33 UTC] PHP Warning:  Undefined variable $uploadDir in /home/earnflow/public_html/user/dashboard/settings.php on line 9
+[31-Jan-2026 09:08:33 UTC] Upload directory is: 
+[21-Feb-2026 13:05:07 UTC] PHP Warning:  Undefined variable $uploadDir in /home/earnflow/public_html/user/dashboard/settings.php on line 9
+[21-Feb-2026 13:05:07 UTC] Upload directory is: 

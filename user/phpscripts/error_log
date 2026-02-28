@@ -1,0 +1,818 @@
+[19-Dec-2025 06:35:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Dec-2025 06:35:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Dec-2025 16:03:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Dec-2025 16:03:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Dec-2025 17:43:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Dec-2025 17:43:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Dec-2025 07:31:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Dec-2025 07:31:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Dec-2025 07:06:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Dec-2025 07:06:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 08:21:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 08:21:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 21:49:15 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 21:49:15 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 21:49:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[22-Dec-2025 21:49:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[23-Dec-2025 20:04:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[23-Dec-2025 20:04:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[23-Dec-2025 20:06:38 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_694af64d42d31
+    [transaction_id] => 55528
+    [checkout_request_id] => ws_CO_23122025230638799756348647
+    [merchant_request_id] => 1f43-4890-bde4-22d16f22a984603651
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[24-Dec-2025 11:01:46 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'mpesa_receipt' in 'SET' in /home/earnflow/public_html/user/phpscripts/callback.php:63
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/callback.php(63): mysqli->prepare('\r\n  UPDATE tran...')
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/callback.php on line 63
+[25-Dec-2025 21:46:40 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[25-Dec-2025 21:46:40 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[26-Dec-2025 06:50:01 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[26-Dec-2025 06:50:01 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[27-Dec-2025 07:29:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[27-Dec-2025 07:29:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Dec-2025 20:02:17 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Dec-2025 20:02:17 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Dec-2025 20:02:27 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Dec-2025 20:02:27 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:46:18 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:46:18 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:59:31 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:59:31 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:59:54 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 08:59:54 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 11:54:37 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 11:54:37 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 11:54:44 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Dec-2025 11:54:44 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:11:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:11:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:11:52 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:11:52 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:15:37 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:15:37 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:15:43 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:15:43 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:29:44 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[31-Dec-2025 10:29:47 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6954fb18ba519
+    [transaction_id] => 57020
+    [checkout_request_id] => ws_CO_31122025132946205745811853
+    [merchant_request_id] => 0761-4836-89b7-ccac771a526c20180774
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[31-Dec-2025 10:29:47 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[31-Dec-2025 10:33:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:33:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:33:37 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 10:33:37 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:32 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:32 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:39 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:39 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:50 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:10:50 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:13:54 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:13:54 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:14:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:14:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:15:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:15:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:17:30 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:17:30 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:37:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 13:37:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 18:59:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 18:59:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 18:59:35 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Dec-2025 18:59:35 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Jan-2026 06:38:44 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Jan-2026 06:38:44 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Jan-2026 06:38:53 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Jan-2026 06:38:53 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[02-Jan-2026 16:34:03 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[02-Jan-2026 16:34:09 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6957f37b18826
+    [transaction_id] => 58036
+    [checkout_request_id] => ws_CO_02012026193409221795077646
+    [merchant_request_id] => 24ce-4ba0-97e5-0333ae99c13610076876
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[02-Jan-2026 16:34:09 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[03-Jan-2026 04:27:08 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 04:27:08 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 04:27:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 04:27:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:41:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:41:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:41:36 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:41:36 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:43:21 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:43:21 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:43:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Jan-2026 11:43:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Jan-2026 10:47:06 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Jan-2026 10:47:06 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Jan-2026 10:47:30 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Jan-2026 10:47:30 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[06-Jan-2026 20:46:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[06-Jan-2026 20:46:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Jan-2026 07:18:08 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Jan-2026 07:18:08 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Jan-2026 09:09:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Jan-2026 09:09:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Jan-2026 16:48:44 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Jan-2026 16:48:44 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Jan-2026 16:49:01 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Jan-2026 16:49:01 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[23-Jan-2026 22:14:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[23-Jan-2026 22:14:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[24-Jan-2026 15:58:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[24-Jan-2026 15:58:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[25-Jan-2026 08:20:21 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[25-Jan-2026 08:20:21 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[25-Jan-2026 10:59:30 UTC] PHP Warning:  Undefined array key "identifier" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[25-Jan-2026 10:59:30 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[25-Jan-2026 10:59:30 UTC] PHP Warning:  Undefined array key "password" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 10
+[25-Jan-2026 10:59:30 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #1 ($password) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 23
+[27-Jan-2026 08:41:59 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[27-Jan-2026 08:41:59 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[27-Jan-2026 21:25:02 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[27-Jan-2026 21:25:02 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[28-Jan-2026 09:30:30 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[28-Jan-2026 09:30:32 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6979d73674dad
+    [transaction_id] => 74446
+    [checkout_request_id] => ws_CO_28012026123032759726596491
+    [merchant_request_id] => 9388-420e-81ae-22bc1470da704360086
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[28-Jan-2026 09:30:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[28-Jan-2026 09:30:37 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[28-Jan-2026 09:30:39 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6979d73d726d9
+    [transaction_id] => 74447
+    [checkout_request_id] => ws_CO_28012026123039264726596491
+    [merchant_request_id] => edd0-477c-bed6-4be58386c5c54566375
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[28-Jan-2026 09:30:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[28-Jan-2026 09:30:44 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[28-Jan-2026 09:30:45 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6979d744747a8
+    [transaction_id] => 74448
+    [checkout_request_id] => ws_CO_28012026123046620726596491
+    [merchant_request_id] => 6215-4a97-b14c-4b78a7afc65e11805551
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[28-Jan-2026 09:30:45 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[28-Jan-2026 09:30:50 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[28-Jan-2026 09:30:52 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_6979d74a86eb0
+    [transaction_id] => 74449
+    [checkout_request_id] => ws_CO_28012026123052298726596491
+    [merchant_request_id] => edd0-477c-bed6-4be58386c5c54566879
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[28-Jan-2026 09:30:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[29-Jan-2026 10:59:33 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[29-Jan-2026 10:59:34 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_697b3d9594c9d
+    [transaction_id] => 74722
+    [checkout_request_id] => ws_CO_29012026135934825728858740
+    [merchant_request_id] => 0514-4b3c-a914-9b9f98aa5f6d1497755
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[29-Jan-2026 10:59:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[29-Jan-2026 16:16:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Jan-2026 16:16:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Jan-2026 16:16:34 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Jan-2026 16:16:34 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Jan-2026 16:17:00 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[29-Jan-2026 16:17:00 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:37:54 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:37:54 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:38:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:38:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:49:01 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:49:01 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:49:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 07:49:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 08:38:40 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[30-Jan-2026 08:38:41 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_697c6e1058ba5
+    [transaction_id] => 75057
+    [checkout_request_id] => ws_CO_30012026113841745700477559
+    [merchant_request_id] => bc80-4b7c-9824-1c5ff13798801197184
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[30-Jan-2026 08:38:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[30-Jan-2026 22:48:49 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 22:48:49 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 22:48:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 22:48:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 22:49:25 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[30-Jan-2026 22:49:25 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 00:08:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 00:08:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 00:08:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 00:08:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 08:55:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 08:55:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 08:55:20 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 08:55:20 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:36 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:36 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:55 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:04:55 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:18 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'correct_option' in 'SELECT' in /home/earnflow/public_html/user/phpscripts/submit_trivia.php:35
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/submit_trivia.php(35): mysqli->prepare('SELECT correct_...')
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/submit_trivia.php on line 35
+[31-Jan-2026 09:05:23 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'correct_option' in 'SELECT' in /home/earnflow/public_html/user/phpscripts/submit_trivia.php:35
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/submit_trivia.php(35): mysqli->prepare('SELECT correct_...')
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/submit_trivia.php on line 35
+[31-Jan-2026 09:05:27 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'correct_option' in 'SELECT' in /home/earnflow/public_html/user/phpscripts/submit_trivia.php:35
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/submit_trivia.php(35): mysqli->prepare('SELECT correct_...')
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/submit_trivia.php on line 35
+[31-Jan-2026 09:05:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:32 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'correct_option' in 'SELECT' in /home/earnflow/public_html/user/phpscripts/submit_trivia.php:35
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/submit_trivia.php(35): mysqli->prepare('SELECT correct_...')
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/submit_trivia.php on line 35
+[31-Jan-2026 09:05:34 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:34 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:42 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:42 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:56 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:05:56 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:06:39 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:06:39 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:06:53 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:06:53 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:40 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:07:40 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:08:35 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:08:35 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:08:42 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 09:08:42 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 13:00:55 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[31-Jan-2026 13:00:55 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 00:20:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 00:20:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 02:50:44 UTC] PHP Warning:  Undefined array key "identifier" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 02:50:44 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 02:50:44 UTC] PHP Warning:  Undefined array key "password" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 10
+[01-Feb-2026 02:50:44 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #1 ($password) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 23
+[01-Feb-2026 04:12:02 UTC] PHP Warning:  Undefined array key "identifier" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 04:12:02 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 04:12:02 UTC] PHP Warning:  Undefined array key "password" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 10
+[01-Feb-2026 04:12:02 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #1 ($password) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 23
+[01-Feb-2026 08:52:50 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 08:52:50 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:36:15 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:36:15 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:37:31 UTC] PHP Warning:  Undefined array key "identifier" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 19:37:31 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[01-Feb-2026 19:37:31 UTC] PHP Warning:  Undefined array key "password" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 10
+[01-Feb-2026 19:37:31 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #1 ($password) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 23
+[01-Feb-2026 19:55:49 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:55:49 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:55:55 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[01-Feb-2026 19:55:55 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[02-Feb-2026 08:43:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[02-Feb-2026 08:43:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[02-Feb-2026 11:25:46 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[02-Feb-2026 11:25:48 UTC] SwiftWallet /payments response: Array
+(
+    [success] => 1
+    [status] => INITIATED
+    [message] => STK Push sent successfully. Please check your phone.
+    [reference] => ACT_698089baad666
+    [transaction_id] => 77386
+    [checkout_request_id] => ws_CO_02022026142547493783317619
+    [merchant_request_id] => 3793-4dbd-aaf8-212831194ecd2079343
+    [channel_type] => paybill
+    [routing_info] => Array
+        (
+            [party_b] => 793174
+            [transaction_type] => CustomerPayBillOnline
+            [description] => Paybill 793174, Account: +254759327438
+        )
+
+)
+
+[02-Feb-2026 11:25:48 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'user_id' cannot be null in /home/earnflow/public_html/user/phpscripts/activationconfig.php:126
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/activationconfig.php(126): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 126
+[02-Feb-2026 20:29:06 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[02-Feb-2026 20:29:06 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 09:11:51 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 09:11:51 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 11:04:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 11:04:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 15:15:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 15:15:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 21:44:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[03-Feb-2026 21:44:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 10:18:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 10:18:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 11:24:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 11:24:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 16:06:12 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 16:06:12 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 18:49:06 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[04-Feb-2026 18:49:06 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 08:16:44 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:51 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:55 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:56 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:57 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:58 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:16:59 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:17:00 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:17:01 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:17:01 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:17:02 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 08:17:03 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[05-Feb-2026 10:09:15 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 10:09:15 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 10:49:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 10:49:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 13:04:39 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 13:04:39 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 13:04:45 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 13:04:45 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 17:15:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 17:15:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 17:15:27 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 17:15:27 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 18:24:25 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 18:24:25 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:04:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:04:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:04:11 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:04:11 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:05:23 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[05-Feb-2026 19:05:23 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[06-Feb-2026 16:52:30 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[06-Feb-2026 16:52:30 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 10:02:34 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 10:02:34 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 11:07:33 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[07-Feb-2026 11:07:33 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 11:07:47 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[07-Feb-2026 11:07:47 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 11:23:20 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[07-Feb-2026 11:23:20 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 12:08:31 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 12:08:31 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:27:02 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:27:02 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:27:15 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:27:15 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:28:50 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:28:50 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:29:17 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:29:17 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:29:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 14:29:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 15:41:15 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[07-Feb-2026 15:41:15 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 15:52:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 15:52:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 15:52:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 15:52:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:01:22 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:01:22 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:01:40 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:01:40 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:01 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:01 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:08 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:08 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:43 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:43 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:58 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:02:58 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[07-Feb-2026 16:21:29 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:33:26 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[07-Feb-2026 16:33:26 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:34:24 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:48:53 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:55:37 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:59:49 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 16:59:54 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 17:01:39 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 17:02:12 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 17:14:04 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 17:15:09 UTC] SwiftWallet /payments response: 
+[07-Feb-2026 17:18:54 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 13:09:29 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 13:11:17 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 13:11:57 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 13:12:23 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 16:01:44 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 16:01:44 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 16:01:48 UTC] PHP Warning:  Undefined array key "identifier" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[08-Feb-2026 16:01:48 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 9
+[08-Feb-2026 16:01:48 UTC] PHP Warning:  Undefined array key "password" in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 10
+[08-Feb-2026 16:01:48 UTC] PHP Deprecated:  password_verify(): Passing null to parameter #1 ($password) of type string is deprecated in /home/earnflow/public_html/user/phpscripts/loginconfig.php on line 23
+[08-Feb-2026 16:02:12 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 16:02:12 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 16:03:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 16:03:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:02:02 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[08-Feb-2026 17:02:03 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 17:52:03 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:52:03 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:52:21 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:52:21 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:53:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:53:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:53:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 17:53:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 18:01:18 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 18:01:27 UTC] SwiftWallet /payments response: 
+[08-Feb-2026 19:45:18 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 19:45:18 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 19:45:27 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[08-Feb-2026 19:45:27 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 04:58:07 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[09-Feb-2026 04:58:07 UTC] SwiftWallet /payments response: 
+[09-Feb-2026 10:54:48 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 10:54:48 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 11:56:04 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 11:56:04 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:04:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:04:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:11:09 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:11:09 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:25:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 12:25:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:34:45 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:34:45 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:35:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:35:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:37:27 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[09-Feb-2026 21:37:27 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 07:20:51 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 10:55:44 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 10:55:44 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 11:20:36 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 11:20:36 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 13:46:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 13:46:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 14:21:54 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:21:54 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 14:22:00 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:22:00 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 14:22:02 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:22:02 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 14:22:06 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:22:06 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 14:22:09 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:22:09 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 14:22:11 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[10-Feb-2026 14:22:11 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 15:06:18 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 15:06:18 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 15:06:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 15:06:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 16:48:52 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 16:48:52 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:21:55 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:21:55 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:22:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:22:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:22:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:22:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:23:04 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:23:04 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:24:18 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 17:24:18 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 18:37:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 18:37:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 20:22:53 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 20:22:53 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 20:53:22 UTC] SwiftWallet /payments response: 
+[10-Feb-2026 21:21:54 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 21:21:54 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 21:22:00 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[10-Feb-2026 21:22:00 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 05:17:15 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 05:17:15 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 11:10:21 UTC] SwiftWallet /payments response: 
+[11-Feb-2026 17:56:58 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 17:56:58 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:41:25 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:41:25 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:41:55 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:41:55 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:47 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:47 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:52 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:52 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:59 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:43:59 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:44:12 UTC] SwiftWallet /payments response: 
+[11-Feb-2026 20:44:43 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:44:43 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:22 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:22 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:36 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:36 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:39 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:39 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:42 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:42 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:45:57 UTC] SwiftWallet /payments response: 
+[11-Feb-2026 20:46:26 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[11-Feb-2026 20:46:26 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 08:49:03 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 08:49:03 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 10:27:11 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 10:27:11 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:54:58 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:54:58 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:55:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:55:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:56:32 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[12-Feb-2026 23:56:32 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Feb-2026 06:59:54 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Feb-2026 06:59:54 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Feb-2026 21:29:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[13-Feb-2026 21:29:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:33:59 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:33:59 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:34:13 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:34:13 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:35:21 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 13:35:21 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 14:55:46 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 14:55:46 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 14:56:37 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 14:56:37 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 15:04:13 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 15:04:13 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 16:00:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 16:00:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 16:18:05 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[14-Feb-2026 16:18:05 UTC] SwiftWallet /payments response: 
+[14-Feb-2026 16:18:12 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[14-Feb-2026 16:18:12 UTC] SwiftWallet /payments response: 
+[14-Feb-2026 21:42:16 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 21:42:16 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 21:42:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[14-Feb-2026 21:42:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 07:27:20 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 07:27:20 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 15:34:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 15:34:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 18:06:29 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 18:06:29 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 20:42:48 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[15-Feb-2026 20:42:48 UTC] SwiftWallet /payments response: 
+[15-Feb-2026 21:15:03 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 21:15:03 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 21:15:12 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 21:15:12 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 21:15:39 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[15-Feb-2026 21:15:39 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 02:44:37 UTC] PHP Warning:  Undefined array key "user_id" in /home/earnflow/public_html/user/phpscripts/activationconfig.php on line 22
+[16-Feb-2026 11:27:35 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 11:27:35 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 11:27:40 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 11:27:40 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:11:50 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:11:50 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:12:22 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:12:22 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:12:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[16-Feb-2026 21:12:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 07:23:47 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 07:23:47 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 14:58:47 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 14:58:47 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 22:03:13 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[17-Feb-2026 22:03:13 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 06:22:13 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 06:22:13 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:02:57 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:02:57 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:17:11 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:17:11 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:31:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 14:31:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 22:15:04 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[18-Feb-2026 22:15:04 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 06:49:18 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 06:49:18 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 11:04:05 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 11:04:05 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 18:26:00 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[19-Feb-2026 18:26:00 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Feb-2026 07:14:10 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Feb-2026 07:14:10 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Feb-2026 18:10:01 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[20-Feb-2026 18:10:01 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:17:49 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:17:49 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:17:59 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:17:59 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:18:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:18:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:18:22 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:18:22 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:22:35 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:22:35 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:41:47 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:41:47 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:42:30 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:42:30 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:42:41 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:42:41 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:19 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:19 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:28 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:28 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:33 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:33 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:34 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:44:34 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:45:52 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:45:52 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:03 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:03 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:07 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:07 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:14 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:46:14 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:51:24 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:51:24 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:51:43 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 12:51:43 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:05:04 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:05:04 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:05:08 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:05:08 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:08:33 UTC] PHP Warning:  include_once(../config.php): Failed to open stream: No such file or directory in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7
+[21-Feb-2026 13:08:33 UTC] PHP Warning:  include_once(): Failed opening '../config.php' for inclusion (include_path='.:/opt/cpanel/ea-php82/root/usr/share/pear') in /home/earnflow/public_html/user/phpscripts/depositconfig.php on line 7

@@ -1,0 +1,18 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Only rewrite if not a real file or directory
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Send everything to index.php (optional, for routing frameworks)
+# RewriteRule ^(.*)$ index.php [QSA,L]
+
+# PHP flag to allow sessions and larger POSTs (optional tweaks)
+php_value session.use_trans_sid 0
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+
+# Handle 404 errors gracefully
+ErrorDocument 404 /404.php

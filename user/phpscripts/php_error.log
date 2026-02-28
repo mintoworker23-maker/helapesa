@@ -1,0 +1,5 @@
+[24-Jun-2025 14:37:04 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'referred_by' cannot be null in /home/earnflow/public_html/user/phpscripts/registerconfig.php:85
+Stack trace:
+#0 /home/earnflow/public_html/user/phpscripts/registerconfig.php(85): mysqli_stmt->execute()
+#1 {main}
+  thrown in /home/earnflow/public_html/user/phpscripts/registerconfig.php on line 85
