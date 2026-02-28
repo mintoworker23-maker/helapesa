@@ -38,6 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $site_phone = $_POST['site_phone'] ?? '';
     $site_email = $_POST['site_email'] ?? '';
     $site_address = $_POST['site_address'] ?? '';
+    $spin_0x = max(0, (float)($_POST['spin_0x'] ?? 30));
+    $spin_0_5x = max(0, (float)($_POST['spin_0_5x'] ?? 25));
+    $spin_1x = max(0, (float)($_POST['spin_1x'] ?? 20));
+    $spin_2x = max(0, (float)($_POST['spin_2x'] ?? 15));
+    $spin_5x = max(0, (float)($_POST['spin_5x'] ?? 8));
+    $spin_10x = max(0, (float)($_POST['spin_10x'] ?? 2));
     
     // Create table if not exists (Safety check for first run)
     $conn->query("CREATE TABLE IF NOT EXISTS site_settings (
@@ -51,7 +57,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'site_description' => $site_description,
         'site_phone' => $site_phone,
         'site_email' => $site_email,
-        'site_address' => $site_address
+        'site_address' => $site_address,
+        'spin_percent_0x' => $spin_0x,
+        'spin_percent_0_5x' => $spin_0_5x,
+        'spin_percent_1x' => $spin_1x,
+        'spin_percent_2x' => $spin_2x,
+        'spin_percent_5x' => $spin_5x,
+        'spin_percent_10x' => $spin_10x
     ];
 
     // Handle Logo Upload
@@ -146,6 +158,19 @@ $site_logo = getSetting($conn, 'site_logo');
 $site_phone = getSetting($conn, 'site_phone');
 $site_email = getSetting($conn, 'site_email');
 $site_address = getSetting($conn, 'site_address');
+$spin_0x = getSetting($conn, 'spin_percent_0x');
+$spin_0_5x = getSetting($conn, 'spin_percent_0_5x');
+$spin_1x = getSetting($conn, 'spin_percent_1x');
+$spin_2x = getSetting($conn, 'spin_percent_2x');
+$spin_5x = getSetting($conn, 'spin_percent_5x');
+$spin_10x = getSetting($conn, 'spin_percent_10x');
+
+$spin_0x = ($spin_0x === '') ? 30 : (float)$spin_0x;
+$spin_0_5x = ($spin_0_5x === '') ? 25 : (float)$spin_0_5x;
+$spin_1x = ($spin_1x === '') ? 20 : (float)$spin_1x;
+$spin_2x = ($spin_2x === '') ? 15 : (float)$spin_2x;
+$spin_5x = ($spin_5x === '') ? 8 : (float)$spin_5x;
+$spin_10x = ($spin_10x === '') ? 2 : (float)$spin_10x;
 
 $packages = [];
 $check_pkg = $conn->query("SHOW TABLES LIKE 'packages'");
@@ -206,6 +231,36 @@ if ($check_pkg->num_rows > 0) {
                                 <label class="form-label">Site Logo (Upload)</label>
                                 <input type="file" class="form-control border border-2 border-dark px-2" name="site_logo">
                             </div>
+
+                            <hr>
+                            <h6 class="mb-3">Spin and Win Percentages</h6>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">0x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0x" value="<?= htmlspecialchars($spin_0x) ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">0.5x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0_5x" value="<?= htmlspecialchars($spin_0_5x) ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">1x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_1x" value="<?= htmlspecialchars($spin_1x) ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">2x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_2x" value="<?= htmlspecialchars($spin_2x) ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">5x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_5x" value="<?= htmlspecialchars($spin_5x) ?>">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">10x (%)</label>
+                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_10x" value="<?= htmlspecialchars($spin_10x) ?>">
+                                </div>
+                            </div>
+                            <p class="text-xs text-muted mb-0">Tip: Set totals close to 100. If they do not total 100, the system auto-normalizes them.</p>
                         </div>
                         
                         <div class="col-md-4 text-center">
