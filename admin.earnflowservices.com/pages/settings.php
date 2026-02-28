@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $site_phone = $_POST['site_phone'] ?? '';
     $site_email = $_POST['site_email'] ?? '';
     $site_address = $_POST['site_address'] ?? '';
+    $welcome_bonus = max(0, (float)($_POST['welcome_bonus'] ?? 150));
     
     // Create table if not exists (Safety check for first run)
     $conn->query("CREATE TABLE IF NOT EXISTS site_settings (
@@ -50,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'site_description' => $site_description,
         'site_phone' => $site_phone,
         'site_email' => $site_email,
-        'site_address' => $site_address
+        'site_address' => $site_address,
+        'welcome_bonus' => $welcome_bonus
     ];
 
     // Handle Logo Upload
@@ -183,6 +185,7 @@ $site_logo = getSetting($conn, 'site_logo');
 $site_phone = getSetting($conn, 'site_phone');
 $site_email = getSetting($conn, 'site_email');
 $site_address = getSetting($conn, 'site_address');
+$welcome_bonus = getSetting($conn, 'welcome_bonus');
 $spin_0x = getSetting($conn, 'spin_percent_0x');
 $spin_0_5x = getSetting($conn, 'spin_percent_0_5x');
 $spin_1x = getSetting($conn, 'spin_percent_1x');
@@ -196,6 +199,7 @@ $spin_1x = ($spin_1x === '') ? 20 : (float)$spin_1x;
 $spin_2x = ($spin_2x === '') ? 15 : (float)$spin_2x;
 $spin_5x = ($spin_5x === '') ? 8 : (float)$spin_5x;
 $spin_10x = ($spin_10x === '') ? 2 : (float)$spin_10x;
+$welcome_bonus = ($welcome_bonus === '') ? 150 : (float)$welcome_bonus;
 
 $packages = [];
 $check_pkg = $conn->query("SHOW TABLES LIKE 'packages'");
@@ -252,6 +256,12 @@ require_once '../includes/header.php';
                             <div class="mb-3">
                                 <label class="form-label">Contact Address</label>
                                 <textarea class="form-control border border-2 border-dark px-2" name="site_address" rows="2" placeholder="Street, City, Country"><?= htmlspecialchars($site_address) ?></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Welcome Bonus (Ksh)</label>
+                                <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="welcome_bonus" value="<?= htmlspecialchars($welcome_bonus) ?>" placeholder="0 to disable">
+                                <small class="text-muted">Set to 0 to disable welcome bonus.</small>
                             </div>
                             
                             <div class="mb-3">

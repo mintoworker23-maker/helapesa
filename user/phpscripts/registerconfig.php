@@ -86,23 +86,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         $new_user_id = $conn->insert_id;
         $stmt->close();
 
-            // ✅ Credit welcome bonus
-            $welcome_bonus = 150.00;
+            // ✅ Credit welcome bonus from admin settings (0 disables it)
+            $welcome_bonus_setting = getSiteSetting($conn, 'welcome_bonus');
+            $welcome_bonus = is_numeric($welcome_bonus_setting) ? max(0, (float)$welcome_bonus_setting) : 150.00;
 
-            // 1. Update user balance
-            $stmt_bonus = $conn->prepare("UPDATE users SET balance = ? WHERE id = ?");
-            $stmt_bonus->bind_param("di", $welcome_bonus, $new_user_id);
-            $stmt_bonus->execute();
-            $stmt_bonus->close();
+            if ($welcome_bonus > 0) {
+                // 1. Update user balance
+                $stmt_bonus = $conn->prepare("UPDATE users SET balance = balance + ? WHERE id = ?");
+                $stmt_bonus->bind_param("di", $welcome_bonus, $new_user_id);
+                $stmt_bonus->execute();
+                $stmt_bonus->close();
 
-            // 2. Log in transactions
-            $desc = "Welcome bonus";
-            $stmt_log = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description) VALUES (?, ?, 'earn', ?)");
-            $stmt_log->bind_param("ids", $new_user_id, $welcome_bonus, $desc);
-            $stmt_log->execute();
-            $stmt_log->close();
+                // 2. Log in transactions
+                $desc = "Welcome bonus";
+                $stmt_log = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description) VALUES (?, ?, 'earn', ?)");
+                $stmt_log->bind_param("ids", $new_user_id, $welcome_bonus, $desc);
+                $stmt_log->execute();
+                $stmt_log->close();
 
-            $_SESSION['welcome_bonus'] = "🎉 You’ve received Ksh 150 welcome bonus!";
+                $bonus_display = (fmod($welcome_bonus, 1.0) == 0.0) ? number_format($welcome_bonus, 0) : number_format($welcome_bonus, 2);
+                $_SESSION['welcome_bonus'] = "🎉 You’ve received Ksh {$bonus_display} welcome bonus!";
+            }
 
 
 

@@ -6,6 +6,7 @@ $siteDescRaw = trim((string)getSiteSetting($conn, 'site_description'));
 $sitePhoneRaw = trim((string)getSiteSetting($conn, 'site_phone'));
 $siteEmailRaw = trim((string)getSiteSetting($conn, 'site_email'));
 $siteAddressRaw = trim((string)getSiteSetting($conn, 'site_address'));
+$welcomeBonusRaw = trim((string)getSiteSetting($conn, 'welcome_bonus'));
 
 $siteNameDisplay = $siteNameRaw !== '' ? $siteNameRaw : 'Helapesa';
 $siteName = htmlspecialchars($siteNameDisplay);
@@ -13,6 +14,8 @@ $siteDesc = htmlspecialchars($siteDescRaw !== '' ? $siteDescRaw : '');
 $sitePhone = htmlspecialchars($sitePhoneRaw !== '' ? $sitePhoneRaw : '+254793479238');
 $siteEmail = htmlspecialchars($siteEmailRaw !== '' ? $siteEmailRaw : 'info@earnflowservices.com');
 $siteAddress = htmlspecialchars($siteAddressRaw !== '' ? $siteAddressRaw : 'Uperhill, Nairobi West, Nairobi, Kenya');
+$welcomeBonusValue = is_numeric($welcomeBonusRaw) ? max(0, (float)$welcomeBonusRaw) : 150.00;
+$welcomeBonusDisplay = (fmod($welcomeBonusValue, 1.0) == 0.0) ? number_format($welcomeBonusValue, 0) : number_format($welcomeBonusValue, 2);
 
 $landingPackages = [];
 $checkPackagesTable = $conn->query("SHOW TABLES LIKE 'packages'");
@@ -490,7 +493,11 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
                         </g>
                       </svg></span>
                     <h3 class="fs-5 mb-3">Welcome Bonus</h3>
-                    <p class="mb-4">Every member who creates an account in EARNFLOW   will be awarded  a free redeemable bonus of KSH.150.</p>
+                    <?php if ($welcomeBonusValue > 0): ?>
+                    <p class="mb-4">Every member who creates an account in <?= $siteName ?> will be awarded a free redeemable bonus of Ksh <?= $welcomeBonusDisplay ?>.</p>
+                    <?php else: ?>
+                    <p class="mb-4">Welcome bonus is currently set to Ksh 0.</p>
+                    <?php endif; ?>
                   </div><a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#"><span class="icons"><i class="icon-1 bi bi-arrow-right-short"></i><i class="icon-2 bi bi-arrow-right-short"> </i></span><span>Read more</span></a>
                 </div>
               </div>
