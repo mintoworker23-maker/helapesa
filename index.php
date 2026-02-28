@@ -7,7 +7,8 @@ $sitePhoneRaw = trim((string)getSiteSetting($conn, 'site_phone'));
 $siteEmailRaw = trim((string)getSiteSetting($conn, 'site_email'));
 $siteAddressRaw = trim((string)getSiteSetting($conn, 'site_address'));
 
-$siteName = htmlspecialchars($siteNameRaw !== '' ? $siteNameRaw : 'Helapesa');
+$siteNameDisplay = $siteNameRaw !== '' ? $siteNameRaw : 'Helapesa';
+$siteName = htmlspecialchars($siteNameDisplay);
 $siteDesc = htmlspecialchars($siteDescRaw !== '' ? $siteDescRaw : '');
 $sitePhone = htmlspecialchars($sitePhoneRaw !== '' ? $sitePhoneRaw : '+254793479238');
 $siteEmail = htmlspecialchars($siteEmailRaw !== '' ? $siteEmailRaw : 'info@earnflowservices.com');
@@ -16,13 +17,42 @@ $siteAddress = htmlspecialchars($siteAddressRaw !== '' ? $siteAddressRaw : 'Uper
 $landingPackages = [];
 $checkPackagesTable = $conn->query("SHOW TABLES LIKE 'packages'");
 if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
-    $packagesResult = $conn->query("SELECT name, price, features, access_trivia, access_adverts, access_youtube, access_social_media, access_spin_win FROM packages ORDER BY price ASC");
+    $availableCols = [];
+    $colsResult = $conn->query("SHOW COLUMNS FROM packages");
+    if ($colsResult) {
+        while ($col = $colsResult->fetch_assoc()) {
+            $availableCols[] = $col['Field'];
+        }
+    }
+
+    $baseCols = ['name', 'price', 'features'];
+    $accessCols = ['access_trivia', 'access_adverts', 'access_youtube', 'access_social_media', 'access_spin_win'];
+    $selectedCols = $baseCols;
+    foreach ($accessCols as $c) {
+        if (in_array($c, $availableCols, true)) {
+            $selectedCols[] = $c;
+        }
+    }
+    $selectSql = "SELECT " . implode(', ', $selectedCols) . " FROM packages ORDER BY price ASC";
+    $packagesResult = $conn->query($selectSql);
     if ($packagesResult) {
         while ($row = $packagesResult->fetch_assoc()) {
             $landingPackages[] = $row;
         }
     }
 }
+
+$lowestPackagePrice = null;
+foreach ($landingPackages as $pkgRow) {
+    if (!isset($pkgRow['price']) || !is_numeric($pkgRow['price'])) {
+        continue;
+    }
+    $priceValue = (float)$pkgRow['price'];
+    if ($lowestPackagePrice === null || $priceValue < $lowestPackagePrice) {
+        $lowestPackagePrice = $priceValue;
+    }
+}
+$lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowestPackagePrice, 0) : '1,300';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +99,7 @@ if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
       "@type": "Organization",
       "url": "https://earnflowservices.com",
       "logo": "https://earnflowservices.com/assets/images/favicon.png",
-      "name": "Earn Money Online with EarnFlow Global Services"
+      "name": <?= json_encode($siteNameDisplay, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
     }
     </script>
 
@@ -176,7 +206,7 @@ if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
                 <div class="row">
                   <div class="col-lg-11"><span class="hero-subtitle text-uppercase" data-aos="fade-up" data-aos-delay="0">Innovative Online Business</span>
                     <h1 class="hero-title mb-3" data-aos="fade-up" data-aos-delay="100">Secure, Efficient, and Fun Way to Earn Online</h1>
-                    <p class="hero-description mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="200">Earnflow Global Services makes it easy to make money online—anywhere, anytime. Whether you're a student, job seeker, or just looking for extra income, we’ve got you covered.</p>
+                    <p class="hero-description mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="200"><?= $siteName ?> makes it easy to make money online—anywhere, anytime. Whether you're a student, job seeker, or just looking for extra income, we’ve got you covered.</p>
                     <div class="cta d-flex gap-2 mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="300"><a class="btn" href="user/register.php">Get Started Now</a><a class="btn btn-white-outline" href="user/login.php">Log In 
                     </a></div>
                     <div class="logos mb-4" data-aos="fade-up" data-aos-delay="400"><span class="logos-title text-uppercase mb-4 d-block">Trusted by many people worldwide</span>
@@ -260,7 +290,7 @@ if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
                             <div class="col-sm-6" data-aos="fade-up" data-aos-delay="0">
                               <div class="icon text-center mb-4"><i class="bi bi-person-check fs-4"></i></div>
                               <h3 class="fs-6 fw-bold mb-3">Low Start-Up Cost</h3>
-                              <p>Start with just Ksh 1300.</p>
+                              <p>Start with just Ksh <?= $lowestPackagePriceDisplay ?>.</p>
                             </div>
                             <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
                               <div class="icon text-center mb-4"><i class="bi bi-graph-up fs-4"></i></div>
@@ -621,7 +651,7 @@ if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"> Can I join from outside Kenya? </button>
                       </h2>
                       <div class="accordion-collapse collapse" id="panelsStayOpen-collapseFour">
-                        <div class="accordion-body">Yes, Earnflow is available worldwide.</div>
+                        <div class="accordion-body">Yes, <?= $siteName ?> is available worldwide.</div>
                       </div>
                     </div>
                     <div class="accordion-item">
