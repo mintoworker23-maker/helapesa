@@ -8,27 +8,38 @@ $pkg_access_trivia = 0;
 $pkg_access_adverts = 0;
 $pkg_access_youtube = 0;
 $pkg_access_social_media = 0;
+$pkg_access_spin_win = 1;
 
 if (isset($conn)) {
     // If $conn is available from parent script
-    $stmt = $conn->prepare("SELECT access_trivia, access_adverts, access_youtube, access_social_media FROM packages WHERE LOWER(name) = ?"); // Use prepared statement
-    $stmt->bind_param("s", $package);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($row = $result->fetch_assoc()) {
-        $pkg_access_trivia = $row['access_trivia'];
-        $pkg_access_adverts = $row['access_adverts'];
-        $pkg_access_youtube = $row['access_youtube'];
-        $pkg_access_social_media = $row['access_social_media'];
-    } else {
-        // Fallback for hardcoded/legacy packages if not found in table
-        if (in_array($package, ['gold', 'premium'])) {
-             $pkg_access_trivia = 1;
+    $stmt = $conn->prepare("SELECT * FROM packages WHERE LOWER(name) = ?"); // Use prepared statement
+    if ($stmt) {
+        $stmt->bind_param("s", $package);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $pkg_access_trivia = (int)($row['access_trivia'] ?? 0);
+            $pkg_access_adverts = (int)($row['access_adverts'] ?? 0);
+            $pkg_access_youtube = (int)($row['access_youtube'] ?? 0);
+            $pkg_access_social_media = (int)($row['access_social_media'] ?? 0);
+            $pkg_access_spin_win = isset($row['access_spin_win']) ? (int)$row['access_spin_win'] : 1;
+        } else {
+            // Fallback for hardcoded/legacy packages if not found in table
+            if (in_array($package, ['gold', 'premium'])) {
+                 $pkg_access_trivia = 1;
+            }
+            if ($package === 'premium') {
+                 $pkg_access_adverts = 1;
+                 $pkg_access_youtube = 1;
+                 $pkg_access_social_media = 1;
+            }
         }
+    } else {
+        if (in_array($package, ['gold', 'premium'])) $pkg_access_trivia = 1;
         if ($package === 'premium') {
-             $pkg_access_adverts = 1;
-             $pkg_access_youtube = 1;
-             $pkg_access_social_media = 1;
+            $pkg_access_adverts = 1;
+            $pkg_access_youtube = 1;
+            $pkg_access_social_media = 1;
         }
     }
 } else {
@@ -68,12 +79,14 @@ if (isset($conn)) {
         </a>
       </li>
 
+      <?php if ($pkg_access_spin_win): ?>
       <li class="nav-item">
         <a class="nav-link <?= $currentPage == 'spinandwin.php' ? 'active' : '' ?>" href="spinandwin.php">
           <i class="material-symbols-rounded opacity-5">stadia_controller</i>
           <span class="nav-link-text ms-1">Fortune Spin</span>
         </a>
       </li>
+      <?php endif; ?>
 
       <li class="nav-item">
         <a class="nav-link <?= $currentPage == 'referals.php' ? 'active' : '' ?>" href="referals.php">

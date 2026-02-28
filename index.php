@@ -1,10 +1,28 @@
 <?php
 require_once 'user/phpscripts/config.php';
-$siteName = getSiteSetting($conn, 'site_name') ? htmlspecialchars(getSiteSetting($conn, 'site_name')) : 'Helapesa';
-$siteDesc = getSiteSetting($conn, 'site_description') ? htmlspecialchars(getSiteSetting($conn, 'site_description')) : '';
-$sitePhone = getSiteSetting($conn, 'site_phone') ? htmlspecialchars(getSiteSetting($conn, 'site_phone')) : '+254793479238';
-$siteEmail = getSiteSetting($conn, 'site_email') ? htmlspecialchars(getSiteSetting($conn, 'site_email')) : 'info@earnflowservices.com';
-$siteAddress = getSiteSetting($conn, 'site_address') ? htmlspecialchars(getSiteSetting($conn, 'site_address')) : 'Uperhill, Nairobi West, Nairobi, Kenya';
+
+$siteNameRaw = trim((string)getSiteSetting($conn, 'site_name'));
+$siteDescRaw = trim((string)getSiteSetting($conn, 'site_description'));
+$sitePhoneRaw = trim((string)getSiteSetting($conn, 'site_phone'));
+$siteEmailRaw = trim((string)getSiteSetting($conn, 'site_email'));
+$siteAddressRaw = trim((string)getSiteSetting($conn, 'site_address'));
+
+$siteName = htmlspecialchars($siteNameRaw !== '' ? $siteNameRaw : 'Helapesa');
+$siteDesc = htmlspecialchars($siteDescRaw !== '' ? $siteDescRaw : '');
+$sitePhone = htmlspecialchars($sitePhoneRaw !== '' ? $sitePhoneRaw : '+254793479238');
+$siteEmail = htmlspecialchars($siteEmailRaw !== '' ? $siteEmailRaw : 'info@earnflowservices.com');
+$siteAddress = htmlspecialchars($siteAddressRaw !== '' ? $siteAddressRaw : 'Uperhill, Nairobi West, Nairobi, Kenya');
+
+$landingPackages = [];
+$checkPackagesTable = $conn->query("SHOW TABLES LIKE 'packages'");
+if ($checkPackagesTable && $checkPackagesTable->num_rows > 0) {
+    $packagesResult = $conn->query("SELECT name, price, features, access_trivia, access_adverts, access_youtube, access_social_media, access_spin_win FROM packages ORDER BY price ASC");
+    if ($packagesResult) {
+        while ($row = $packagesResult->fetch_assoc()) {
+            $landingPackages[] = $row;
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -281,79 +299,46 @@ $siteAddress = getSiteSetting($conn, 'site_address') ? htmlspecialchars(getSiteS
               </div>
             </div>
             <div class="row g-4">
-              <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-5 rounded-4 price-table h-100">
-                  <h3>Basic</h3>
-                  <p>Choose a plan that fits your personal financial needs and start managing your finances more effectively.</p>
-                  <h4 class="text-uppercase">Features</h4>
-                      <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Welcome Bonus</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Referral - Level 1(Ksh 600)</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Watching YouTube Ads</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Trivia Questions</span></li>
-                      </ul>
-                  <div class="price mb-4"><strong>Ksh 1300</strong><span>/one-time</span></div>
-                  <div><a class="btn" href="user/register.php">Get Started</a></div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-5 rounded-4 price-table h-100">
-                  <h3>Silver</h3>
-                  <p>Choose a plan that fits your personal financial needs and start managing your finances more effectively.</p>
-                  <h4 class="text-uppercase">Features</h4>
-                      <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Welcome Bonus</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Referral - Level 1(Ksh 500) & 2(Ksh 200)</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Watching YouTube Ads</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Trivia Questions</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Spinning</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Adverts: 3 per week</span></li>
-                      </ul>
-                  <div class="price mb-4"><strong>Ksh 2000</strong><span>/one-time</span></div>
-                  <div><a class="btn" href="user/register.php">Get Started</a></div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-5 rounded-4 price-table h-100">
-                  <h3>Gold</h3>
-                  <p>Choose a plan that fits your personal financial needs and start managing your finances more effectively.</p>
-                  <h4 class="text-uppercase">Features</h4>
-                      <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Welcome Bonus</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Referral - Level 1 (Ksh 1,200) & 2(Ksh 500)</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Watching YouTube Ads</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Trivia Questions</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Spinning</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Adverts: 6 per week</span></li>
-                      </ul>
-                  <div class="price mb-4"><strong>Ksh 4000</strong><span>/one-time</span></div>
-                  <div><a class="btn" href="user/register.php">Get Started</a></div>
-                </div>
-              </div>
-              <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-                <div class="p-5 rounded-4 price-table popular h-100">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h3 class="mb-3">Premium</h3>
-                      <p>Optimize your business financial operations with our tailored business plans.</p>
-                      <div class="price mb-4"><strong class="me-1 text-white">KSH 5000</strong><span>/one-time</span></div>
-                      <div><a class="btn btn-white hover-outline mb-4" href="user/register.php">Get Started</a></div>
-                    </div>
-                    <div class="col-md-6 Packages">
-                      <h4 class="text-uppercase fw-bold md-3 text-white">Features</h4>
-                      <ul class="list-unstyled d-flex flex-column gap-3">
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Weekly Target Bonus</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Welcome Bonus</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Referral - Level 1 (Ksh 1,300) & 2(Ksh 700)</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Watching YouTube Ads</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Trivia Questions</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Spinning</span></li>
-                        <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span>Adverts: Daily</span></li>
-                      </ul>
+              <?php if (!empty($landingPackages)): ?>
+                <?php foreach ($landingPackages as $pkg): ?>
+                  <?php
+                  $pkgName = trim((string)($pkg['name'] ?? 'Package'));
+                  $pkgPrice = (float)($pkg['price'] ?? 0);
+                  $pkgFeatures = array_filter(array_map('trim', explode(',', (string)($pkg['features'] ?? ''))));
+                  $defaultFeatures = [];
+                  if (!empty($pkg['access_trivia'])) $defaultFeatures[] = 'Trivia Questions';
+                  if (!empty($pkg['access_adverts'])) $defaultFeatures[] = 'Adverts';
+                  if (!empty($pkg['access_youtube'])) $defaultFeatures[] = 'YouTube Ads';
+                  if (!empty($pkg['access_social_media'])) $defaultFeatures[] = 'Social Media Tasks';
+                  if (!empty($pkg['access_spin_win'])) $defaultFeatures[] = 'Spin & Win';
+                  $featuresToShow = !empty($pkgFeatures) ? $pkgFeatures : $defaultFeatures;
+                  ?>
+                  <div class="col-md-4 mb-4 mb-md-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-5 rounded-4 price-table h-100">
+                      <h3><?= htmlspecialchars($pkgName) ?></h3>
+                      <p>Choose a plan that fits your personal financial needs and start managing your finances more effectively.</p>
+                      <h4 class="text-uppercase">Features</h4>
+                      <?php if (!empty($featuresToShow)): ?>
+                        <ul class="list-unstyled d-flex flex-column gap-3">
+                          <?php foreach ($featuresToShow as $feature): ?>
+                            <li class="d-flex gap-2 align-items-start mb-0"><span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span><span><?= htmlspecialchars($feature) ?></span></li>
+                          <?php endforeach; ?>
+                        </ul>
+                      <?php endif; ?>
+                      <div class="price mb-4"><strong>Ksh <?= number_format($pkgPrice, 0) ?></strong><span>/one-time</span></div>
+                      <div><a class="btn" href="user/register.php">Get Started</a></div>
                     </div>
                   </div>
+                <?php endforeach; ?>
+              <?php else: ?>
+                <div class="col-12">
+                  <div class="p-5 rounded-4 price-table h-100">
+                    <h3>Packages Coming Soon</h3>
+                    <p>No package has been configured yet. Please check back shortly.</p>
+                    <div><a class="btn" href="user/register.php">Get Started</a></div>
+                  </div>
                 </div>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
         </section>

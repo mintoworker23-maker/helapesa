@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../config/config.php';
-require_once '../includes/header.php';
 
 // Check if admin is logged in
 if (!isset($_SESSION['admin_id']) && !isset($_SESSION['user_id'])) { 
@@ -38,12 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $site_phone = $_POST['site_phone'] ?? '';
     $site_email = $_POST['site_email'] ?? '';
     $site_address = $_POST['site_address'] ?? '';
-    $spin_0x = max(0, (float)($_POST['spin_0x'] ?? 30));
-    $spin_0_5x = max(0, (float)($_POST['spin_0_5x'] ?? 25));
-    $spin_1x = max(0, (float)($_POST['spin_1x'] ?? 20));
-    $spin_2x = max(0, (float)($_POST['spin_2x'] ?? 15));
-    $spin_5x = max(0, (float)($_POST['spin_5x'] ?? 8));
-    $spin_10x = max(0, (float)($_POST['spin_10x'] ?? 2));
     
     // Create table if not exists (Safety check for first run)
     $conn->query("CREATE TABLE IF NOT EXISTS site_settings (
@@ -57,13 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'site_description' => $site_description,
         'site_phone' => $site_phone,
         'site_email' => $site_email,
-        'site_address' => $site_address,
-        'spin_percent_0x' => $spin_0x,
-        'spin_percent_0_5x' => $spin_0_5x,
-        'spin_percent_1x' => $spin_1x,
-        'spin_percent_2x' => $spin_2x,
-        'spin_percent_5x' => $spin_5x,
-        'spin_percent_10x' => $spin_10x
+        'site_address' => $site_address
     ];
 
     // Handle Logo Upload
@@ -95,6 +82,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     exit();
 }
 
+// 1b. Save Spin Probabilities
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'save_spin_settings') {
+    $spin_0x = max(0, (float)($_POST['spin_0x'] ?? 30));
+    $spin_0_5x = max(0, (float)($_POST['spin_0_5x'] ?? 25));
+    $spin_1x = max(0, (float)($_POST['spin_1x'] ?? 20));
+    $spin_2x = max(0, (float)($_POST['spin_2x'] ?? 15));
+    $spin_5x = max(0, (float)($_POST['spin_5x'] ?? 8));
+    $spin_10x = max(0, (float)($_POST['spin_10x'] ?? 2));
+
+    $conn->query("CREATE TABLE IF NOT EXISTS site_settings (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        setting_key VARCHAR(50) UNIQUE NOT NULL,
+        setting_value TEXT
+    )");
+
+    $spinSettings = [
+        'spin_percent_0x' => $spin_0x,
+        'spin_percent_0_5x' => $spin_0_5x,
+        'spin_percent_1x' => $spin_1x,
+        'spin_percent_2x' => $spin_2x,
+        'spin_percent_5x' => $spin_5x,
+        'spin_percent_10x' => $spin_10x
+    ];
+
+    foreach ($spinSettings as $key => $value) {
+        $stmt = $conn->prepare("INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?) ON DUPLICATE KEY UPDATE setting_value = ?");
+        $stmt->bind_param("sss", $key, $value, $value);
+        $stmt->execute();
+    }
+
+    $_SESSION['message'] = "Spin probabilities updated successfully!";
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+
 // 2. Add Package
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'add_package') {
     $name = $_POST['name'] ?? '';
@@ -104,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $access_adverts = isset($_POST['access_adverts']) ? 1 : 0;
     $access_youtube = isset($_POST['access_youtube']) ? 1 : 0;
     $access_social_media = isset($_POST['access_social_media']) ? 1 : 0;
+    $access_spin_win = isset($_POST['access_spin_win']) ? 1 : 0;
     
     // Create table if not exists
     $conn->query("CREATE TABLE IF NOT EXISTS packages (
@@ -115,21 +138,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         access_adverts TINYINT(1) DEFAULT 0,
         access_youtube TINYINT(1) DEFAULT 0,
         access_social_media TINYINT(1) DEFAULT 0,
+        access_spin_win TINYINT(1) DEFAULT 1,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
 
     // Add columns if they don't exist (for existing tables)
-    $columns = ['access_trivia', 'access_adverts', 'access_youtube', 'access_social_media'];
+    $columns = ['access_trivia', 'access_adverts', 'access_youtube', 'access_social_media', 'access_spin_win'];
     foreach ($columns as $col) {
         $check = $conn->query("SHOW COLUMNS FROM packages LIKE '$col'");
         if ($check->num_rows == 0) {
-            $conn->query("ALTER TABLE packages ADD COLUMN $col TINYINT(1) DEFAULT 0");
+            $default = ($col === 'access_spin_win') ? 1 : 0;
+            $conn->query("ALTER TABLE packages ADD COLUMN $col TINYINT(1) DEFAULT $default");
         }
     }
 
     if ($name && $price) {
-        $stmt = $conn->prepare("INSERT INTO packages (name, price, features, access_trivia, access_adverts, access_youtube, access_social_media) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sdsiiii", $name, $price, $features, $access_trivia, $access_adverts, $access_youtube, $access_social_media);
+        $stmt = $conn->prepare("INSERT INTO packages (name, price, features, access_trivia, access_adverts, access_youtube, access_social_media, access_spin_win) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sdsiiiii", $name, $price, $features, $access_trivia, $access_adverts, $access_youtube, $access_social_media, $access_spin_win);
         if ($stmt->execute()) {
             $_SESSION['message'] = "Package added successfully!";
             header("Location: " . $_SERVER['PHP_SELF']);
@@ -180,6 +205,8 @@ if ($check_pkg->num_rows > 0) {
         $packages[] = $row;
     }
 }
+
+require_once '../includes/header.php';
 ?>
 
 <body class="g-sidenav-show bg-gray-200">
@@ -232,35 +259,6 @@ if ($check_pkg->num_rows > 0) {
                                 <input type="file" class="form-control border border-2 border-dark px-2" name="site_logo">
                             </div>
 
-                            <hr>
-                            <h6 class="mb-3">Spin and Win Percentages</h6>
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">0x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0x" value="<?= htmlspecialchars($spin_0x) ?>">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">0.5x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0_5x" value="<?= htmlspecialchars($spin_0_5x) ?>">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">1x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_1x" value="<?= htmlspecialchars($spin_1x) ?>">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">2x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_2x" value="<?= htmlspecialchars($spin_2x) ?>">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">5x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_5x" value="<?= htmlspecialchars($spin_5x) ?>">
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <label class="form-label">10x (%)</label>
-                                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_10x" value="<?= htmlspecialchars($spin_10x) ?>">
-                                </div>
-                            </div>
-                            <p class="text-xs text-muted mb-0">Tip: Set totals close to 100. If they do not total 100, the system auto-normalizes them.</p>
                         </div>
                         
                         <div class="col-md-4 text-center">
@@ -276,6 +274,48 @@ if ($check_pkg->num_rows > 0) {
                     <button type="submit" class="btn btn-dark mt-3">Save Changes</button>
                     <!-- Changed button logic to update specific form -->
                 </form>
+            </div>
+          </div>
+
+          <div class="card my-4" id="spin-settings">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-dark shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Spin Probability Settings</h6>
+              </div>
+            </div>
+
+            <div class="card-body p-4">
+              <form method="POST">
+                <input type="hidden" name="action" value="save_spin_settings">
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">0x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0x" value="<?= htmlspecialchars($spin_0x) ?>">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">0.5x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_0_5x" value="<?= htmlspecialchars($spin_0_5x) ?>">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">1x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_1x" value="<?= htmlspecialchars($spin_1x) ?>">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">2x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_2x" value="<?= htmlspecialchars($spin_2x) ?>">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">5x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_5x" value="<?= htmlspecialchars($spin_5x) ?>">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label class="form-label">10x (%)</label>
+                    <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="spin_10x" value="<?= htmlspecialchars($spin_10x) ?>">
+                  </div>
+                </div>
+                <p class="text-xs text-muted mb-3">Tip: Set totals close to 100. If they do not total 100, the system auto-normalizes them.</p>
+                <button type="submit" class="btn btn-dark">Save Spin Probabilities</button>
+              </form>
             </div>
           </div>
 
@@ -376,6 +416,12 @@ if ($check_pkg->num_rows > 0) {
                                             <div class="form-check ps-0">
                                                 <input class="form-check-input ms-0" type="checkbox" name="access_social_media" value="1" id="access_social_media">
                                                 <label class="form-check-label ms-2" for="access_social_media">WhatsApp</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-check ps-0">
+                                                <input class="form-check-input ms-0" type="checkbox" name="access_spin_win" value="1" id="access_spin_win" checked>
+                                                <label class="form-check-label ms-2" for="access_spin_win">Spin &amp; Win</label>
                                             </div>
                                         </div>
                                     </div>

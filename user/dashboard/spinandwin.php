@@ -8,6 +8,26 @@ if (!isset($_SESSION['user_id'])) {
   $_SESSION['user_id'] = 1; // Replace with actual login logic
 }
 
+// Check package permission for Spin & Win
+$package = strtolower(trim($_SESSION['package'] ?? 'basic'));
+$canAccessSpinWin = 1; // Keep legacy behavior enabled by default
+$stmt = $conn->prepare("SELECT * FROM packages WHERE LOWER(name) = ? LIMIT 1");
+if ($stmt) {
+  $stmt->bind_param("s", $package);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  if ($row = $result->fetch_assoc()) {
+    $canAccessSpinWin = isset($row['access_spin_win']) ? (int)$row['access_spin_win'] : 1;
+  }
+  $stmt->close();
+}
+
+if (!$canAccessSpinWin) {
+  $_SESSION['spin_error'] = "Your package does not include Spin & Win access.";
+  header("Location: index.php");
+  exit();
+}
+
 // Fetch user balance from the database
 $user_id = $_SESSION['user_id'];
 $balance = 0;
