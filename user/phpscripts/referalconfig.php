@@ -13,7 +13,7 @@ if (!$user_id) {
 }
 
 // --- Get referral link ---
-$referral_link = "https://earnflowservices.com/user/register.php?ref=";
+$referral_link = $base_url . "/register.php?ref=";
 
 // Get user's username
 $stmt = $conn->prepare("SELECT username FROM users WHERE id = ?");

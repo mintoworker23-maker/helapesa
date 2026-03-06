@@ -39,31 +39,64 @@ if ($stmt->fetch()) {
 $stmt->close();
 ?>
 
-<!-- AlertifyJS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
 <div class="container py-4">
-    <h3 class="mb-3">Watch and Earn</h3>
-    <p>Earn <strong>Ksh 100</strong> for watching each assigned video fully. New videos may be added daily.</p>
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h3 class="font-weight-bolder mb-0">Watch and Earn</h3>
+            <p class="text-muted small mb-0">Watch videos to earn rewards</p>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-gradient-success">Ksh 100 per video</span>
+        </div>
+    </div>
 
     <?php if ($video): ?>
-        <div class="card p-3">
-            <h5><?= htmlspecialchars($video['title']) ?></h5>
-            <div class="ratio ratio-16x9 mb-3">
-                <div id="player"></div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card feature-card overflow-hidden">
+                    <div class="card-header bg-gradient-dark p-4">
+                        <h5 class="text-white mb-0 font-weight-bold"><?= htmlspecialchars($video['title']) ?></h5>
+                        <p class="text-white opacity-8 text-sm mb-0">Watch the full video to receive your reward</p>
+                    </div>
+                    
+                    <div class="card-body p-0">
+                        <div class="ratio ratio-16x9">
+                            <div id="player"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="material-symbols-rounded text-info me-2">timer</span>
+                                <span class="text-sm font-weight-bold" id="timerDisplay">Watch Time: 0s</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-xs text-muted">Reward: <strong class="text-dark">Ksh 100.00</strong></span>
+                            </div>
+                        </div>
+                        
+                        <form method="POST" action="../phpscripts/submit_video_reward.php" id="watchForm">
+                            <input type="hidden" name="video_id" value="<?= $video['id'] ?>">
+                            <button type="submit" class="btn btn-dark btn-custom w-100" id="manualSubmit" disabled>
+                                <span class="material-symbols-rounded align-middle me-1">check_circle</span> 
+                                I HAVE WATCHED THE VIDEO
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form method="POST" action="../phpscripts/submit_video_reward.php" id="watchForm">
-                <input type="hidden" name="video_id" value="<?= $video['id'] ?>">
-                <button type="submit" class="btn btn-success btn-primary btn-dark" id="manualSubmit" disabled>
-                    I have watched the video
-                </button>
-            </form>
         </div>
     <?php else: ?>
-        <div class="alert alert-info">
-            You’ve watched all available videos for today. Please check back later.
+        <div class="card feature-card p-5 text-center">
+            <div class="mb-3 text-muted">
+                <span class="material-symbols-rounded display-4">video_library</span>
+            </div>
+            <h4 class="font-weight-bold">All Caught Up!</h4>
+            <p class="text-muted">You’ve watched all available videos for today. Please check back later for new content.</p>
+            <div class="mt-2">
+                <a href="index.php" class="btn btn-outline-dark btn-custom">Back to Dashboard</a>
+            </div>
         </div>
     <?php endif; ?>
 </div>
@@ -87,6 +120,7 @@ $stmt->close();
     let timer;
 
     function onYouTubeIframeAPIReady() {
+        <?php if ($video): ?>
         player = new YT.Player('player', {
             height: '360',
             width: '640',
@@ -95,22 +129,29 @@ $stmt->close();
                 'onStateChange': onPlayerStateChange
             }
         });
+        <?php endif; ?>
     }
 
     function onPlayerStateChange(event) {
         if (event.data === YT.PlayerState.PLAYING) {
-            timer = setInterval(() => watchTime++, 1000);
+            timer = setInterval(() => {
+                watchTime++;
+                document.getElementById('timerDisplay').innerText = `Watch Time: ${watchTime}s`;
+            }, 1000);
         } else {
             clearInterval(timer);
         }
 
         if (event.data === YT.PlayerState.ENDED) {
-            if (watchTime >= player.getDuration() - 2) {
-                alertify.success("Video completed! Submitting reward...");
+            if (watchTime >= player.getDuration() - 5) {
+                alertify.success("🎉 Video completed! You can now claim your reward.");
                 document.getElementById('manualSubmit').disabled = false;
-                setTimeout(() => document.getElementById('watchForm').submit(), 1000);
+                document.getElementById('manualSubmit').classList.remove('btn-dark');
+                document.getElementById('manualSubmit').classList.add('btn-success');
+                // Automatically submit after 2 seconds
+                setTimeout(() => document.getElementById('watchForm').submit(), 2000);
             } else {
-                alertify.error("You must watch the full video to earn rewards.");
+                alertify.error("⚠️ You must watch the full video to earn rewards.");
             }
         }
     }

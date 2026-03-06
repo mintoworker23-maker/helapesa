@@ -24,18 +24,18 @@ $result = $stmt->get_result();
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h4 class="mb-0">All Users</h4>
       <form method="get" class="d-flex" role="search">
-        <input type="text" name="search" value="<?= htmlspecialchars($search) ?>" class="form-control me-2 w-100 h-100 border border-1 px-1" placeholder="Search username or email">
+        <input type="text" name="search" value="<?= htmlspecialchars($search) ?>" class="form-control me-2 w-100 h-100 border border-2 px-2" placeholder="Search username or email...">
         <button class="btn btn-primary w-100 bg-dark" type="submit">Search</button>
       </form>
     </div>
 
     <div class="card">
-      <div class="card-header pb-0">
-        <h6>User List</h6>
-      </div>
-      <div class="card-body pt-0">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">User List</h5>
+        </div>
         <div class="table-responsive">
-          <table class="table table-bordered align-items-center mb-0 w-100">
+          <table class="table table-hover align-items-center mb-0 w-100" id="userListTable">
             <thead>
               <tr>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder">Profile</th>
@@ -56,15 +56,15 @@ $result = $stmt->get_result();
                   </div>
                 </td>
                 <td>
-                  <a href="user_detail.php?id=<?= $user['id'] ?>" class="text-sm mb-0 text-primary text-decoration-none" id="usernameLink">
+                  <a href="user_detail.php?id=<?= $user['id'] ?>" class="text-sm mb-0 text-primary text-decoration-none font-weight-bold">
                     <?= htmlspecialchars($user['username']) ?>
                   </a>
                 </td>
                 <td>
-                  <p class="text-sm mb-0"><?= htmlspecialchars($user['phone']) ?></p>
+                  <p class="text-sm mb-0"><?= htmlspecialchars($user['email']) ?></p>
                 </td>
                 <td>
-                  <p class="text-sm mb-0"><?= htmlspecialchars($user['email']) ?></p>
+                  <p class="text-sm mb-0"><?= htmlspecialchars($user['phone']) ?></p>
                 </td>
                 <td>
                   <p class="text-sm mb-0"><?= date('d M Y', strtotime($user['created_on'])) ?></p>
@@ -73,7 +73,7 @@ $result = $stmt->get_result();
               <?php endwhile; ?>
               <?php if ($result->num_rows === 0): ?>
                 <tr>
-                  <td colspan="6" class="text-center text-muted py-4">No users found.</td>
+                  <td colspan="5" class="text-center text-muted py-4">No users found.</td>
                 </tr>
               <?php endif; ?>
             </tbody>

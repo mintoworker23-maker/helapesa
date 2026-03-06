@@ -38,6 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $site_email = $_POST['site_email'] ?? '';
     $site_address = $_POST['site_address'] ?? '';
     $welcome_bonus = max(0, (float)($_POST['welcome_bonus'] ?? 150));
+    $require_spin = isset($_POST['require_spin_withdrawal']) ? '1' : '0';
+    $require_referral = isset($_POST['require_referral_withdrawal']) ? '1' : '0';
+    $enable_deposit = isset($_POST['enable_deposit']) ? '1' : '0';
+    $theme_color = $_POST['theme_color'] ?? 'black';
     
     // Create table if not exists (Safety check for first run)
     $conn->query("CREATE TABLE IF NOT EXISTS site_settings (
@@ -52,7 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         'site_phone' => $site_phone,
         'site_email' => $site_email,
         'site_address' => $site_address,
-        'welcome_bonus' => $welcome_bonus
+        'welcome_bonus' => $welcome_bonus,
+        'require_spin_withdrawal' => $require_spin,
+        'require_referral_withdrawal' => $require_referral,
+        'enable_deposit' => $enable_deposit,
+        'theme_color' => $theme_color
     ];
 
     // Handle Logo Upload
@@ -62,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
         
         if (in_array($ext, $allowed)) {
-            $uploadDir = '../uploads/';
+            $uploadDir = '../../uploads/';
             if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
             
             $newFilename = 'logo.' . $ext;
@@ -193,6 +201,10 @@ $spin_2x = getSetting($conn, 'spin_percent_2x');
 $spin_5x = getSetting($conn, 'spin_percent_5x');
 $spin_10x = getSetting($conn, 'spin_percent_10x');
 
+$require_spin = getSetting($conn, 'require_spin_withdrawal') === '1';
+$require_referral = getSetting($conn, 'require_referral_withdrawal') === '1';
+$enable_deposit = getSetting($conn, 'enable_deposit') !== '0'; // Default to enabled if not set
+
 $spin_0x = ($spin_0x === '') ? 30 : (float)$spin_0x;
 $spin_0_5x = ($spin_0_5x === '') ? 25 : (float)$spin_0_5x;
 $spin_1x = ($spin_1x === '') ? 20 : (float)$spin_1x;
@@ -263,6 +275,34 @@ require_once '../includes/header.php';
                                 <input type="number" step="0.01" min="0" class="form-control border border-2 border-dark px-2" name="welcome_bonus" value="<?= htmlspecialchars($welcome_bonus) ?>" placeholder="0 to disable">
                                 <small class="text-muted">Set to 0 to disable welcome bonus.</small>
                             </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">App Theme Color</label>
+                                <select name="theme_color" class="form-control border border-2 border-dark px-2">
+                                    <option value="black" <?= $theme_color === 'black' ? 'selected' : '' ?>>Default Black</option>
+                                    <option value="darkblue" <?= $theme_color === 'darkblue' ? 'selected' : '' ?>>Dark Blue (Night Mode)</option>
+                                    <option value="green" <?= $theme_color === 'green' ? 'selected' : '' ?>>Nature Green</option>
+                                    <option value="purple" <?= $theme_color === 'purple' ? 'selected' : '' ?>>Royal Purple</option>
+                                    <option value="red" <?= $theme_color === 'red' ? 'selected' : '' ?>>Vibrant Red</option>
+                                </select>
+                                <small class="text-muted">Select the primary color theme for the user and admin dashboards.</small>
+                            </div>
+
+                            <div class="mb-4 border-top pt-3">
+                                <label class="form-label d-block fw-bold text-dark">App Controls & Restrictions</label>
+                                <div class="form-check form-switch ps-0">
+                                    <input class="form-check-input ms-0" type="checkbox" name="require_spin_withdrawal" id="require_spin" <?= $require_spin ? 'checked' : '' ?>>
+                                    <label class="form-check-label ms-2" for="require_spin">Require users to Spin at least once before Withdrawal</label>
+                                </div>
+                                <div class="form-check form-switch ps-0 mt-2">
+                                    <input class="form-check-input ms-0" type="checkbox" name="require_referral_withdrawal" id="require_referral" <?= $require_referral ? 'checked' : '' ?>>
+                                    <label class="form-check-label ms-2" for="require_referral">Require users to have Referrals before Withdrawal</label>
+                                </div>
+                                <div class="form-check form-switch ps-0 mt-2">
+                                    <input class="form-check-input ms-0" type="checkbox" name="enable_deposit" id="enable_deposit" <?= $enable_deposit ? 'checked' : '' ?>>
+                                    <label class="form-check-label ms-2" for="enable_deposit">Enable Deposit Feature for Users</label>
+                                </div>
+                            </div>
                             
                             <div class="mb-3">
                                 <label class="form-label">Site Logo (Upload)</label>
@@ -273,8 +313,8 @@ require_once '../includes/header.php';
                         
                         <div class="col-md-4 text-center">
                             <label class="form-label">Current Logo</label><br>
-                            <?php if($site_logo && file_exists("../uploads/".$site_logo)): ?>
-                                <img src="../uploads/<?= htmlspecialchars($site_logo) ?>" alt="Site Logo" class="img-fluid border rounded p-2" style="max-height: 150px;">
+                            <?php if($site_logo && file_exists("../../uploads/".$site_logo)): ?>
+                                <img src="../../uploads/<?= htmlspecialchars($site_logo) ?>" alt="Site Logo" class="img-fluid border rounded p-2" style="max-height: 150px;">
                             <?php else: ?>
                                 <div class="p-4 border border-dashed rounded text-muted">No Logo Set</div>
                             <?php endif; ?>
@@ -342,7 +382,7 @@ require_once '../includes/header.php';
                         <div class="mb-4">
                             <h5>Existing Packages</h5>
                             <div class="table-responsive">
-                                <table class="table align-items-center mb-0">
+                                <table class="table table-hover" id="packagesTable">
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
@@ -365,7 +405,7 @@ require_once '../includes/header.php';
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0"><?= number_format($pkg['price'], 2) ?></p>
+                                                    <p class="text-xs font-weight-bold mb-0">Ksh <?= number_format($pkg['price'], 2) ?></p>
                                                 </td>
                                                 <td>
                                                     <p class="text-xs text-secondary mb-0"><?= htmlspecialchars($pkg['features']) ?></p>

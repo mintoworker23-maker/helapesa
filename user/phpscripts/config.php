@@ -8,8 +8,14 @@ $password = '';
 $database = 'helapesa';
 
 // Base URL configuration
-$base_url = 'http://localhost/helapesa/user'; // Local URL since we are in XAMPP
-// Note: If deploying to live, revert to https://earnflowservices.com/earnflow
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443)) ? "https://" : "http://";
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+// Construct base URL dynamically. Assuming project is either at root or in helapesa folder.
+// We look for 'user' in the path to determine where the user directory is.
+$scriptPath = $_SERVER['SCRIPT_NAME'] ?? '';
+$userPos = strpos($scriptPath, '/user/');
+$projectPath = ($userPos !== false) ? substr($scriptPath, 0, $userPos) : '';
+$base_url = $protocol . $host . $projectPath . '/user';
 
 // Create database connection
 $conn = new mysqli($host, $username, $password, $database);
@@ -138,7 +144,7 @@ function getDashboardData($conn, $user_id) {
         $stmt = $conn->prepare("
             SELECT DATE(created_at) AS date, SUM(amount) AS total 
             FROM transactions  
-            WHERE user_id = ? 
+            WHERE user_id = ? AND type = 'earn'
             GROUP BY DATE(created_at) 
             ORDER BY DATE(created_at) DESC 
             LIMIT 7
@@ -227,7 +233,7 @@ function getReferralData($conn, $user_id) {
 
         // Referred users
         $stmt = $conn->prepare("
-            SELECT u.username, u.email, u.phone, u.created_on, r.bonus_amount 
+            SELECT u.username, u.email, u.phone, u.created_on, u.is_active, r.bonus_amount 
             FROM referals r
             JOIN users u ON r.referred_id = u.id
             WHERE r.referrer_id = ?

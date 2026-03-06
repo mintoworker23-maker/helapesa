@@ -7,12 +7,15 @@ $sitePhoneRaw = trim((string)getSiteSetting($conn, 'site_phone'));
 $siteEmailRaw = trim((string)getSiteSetting($conn, 'site_email'));
 $siteAddressRaw = trim((string)getSiteSetting($conn, 'site_address'));
 $welcomeBonusRaw = trim((string)getSiteSetting($conn, 'welcome_bonus'));
+$siteLogoRaw = trim((string)getSiteSetting($conn, 'site_logo'));
+$siteLogo = ($siteLogoRaw !== '' && file_exists('uploads/' . $siteLogoRaw)) ? 'uploads/' . $siteLogoRaw : 'assets/images/faviconlight.png';
+$siteLogoUrl = rtrim($base_url, '/') . '/' . ltrim($siteLogo, '/');
 
 $siteNameDisplay = $siteNameRaw !== '' ? $siteNameRaw : 'Helapesa';
 $siteName = htmlspecialchars($siteNameDisplay);
 $siteDesc = htmlspecialchars($siteDescRaw !== '' ? $siteDescRaw : '');
 $sitePhone = htmlspecialchars($sitePhoneRaw !== '' ? $sitePhoneRaw : '+254793479238');
-$siteEmail = htmlspecialchars($siteEmailRaw !== '' ? $siteEmailRaw : 'info@earnflowservices.com');
+$siteEmail = htmlspecialchars($siteEmailRaw !== '' ? $siteEmailRaw : 'info@' . $host);
 $siteAddress = htmlspecialchars($siteAddressRaw !== '' ? $siteAddressRaw : 'Uperhill, Nairobi West, Nairobi, Kenya');
 $welcomeBonusValue = is_numeric($welcomeBonusRaw) ? max(0, (float)$welcomeBonusRaw) : 150.00;
 $welcomeBonusDisplay = (fmod($welcomeBonusValue, 1.0) == 0.0) ? number_format($welcomeBonusValue, 0) : number_format($welcomeBonusValue, 2);
@@ -62,9 +65,10 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
   <head>
     <meta property="og:title" content="<?= $siteName ?> – Make Money Online in Kenya" />
     <meta property="og:description" content="<?= $siteDesc ?: 'Watch videos, refer friends, and earn easily with as little as Ksh 50.' ?>" />
-    <meta property="og:image" content="https://earnflowservices.com/assets/images/your-thumbnail.jpg" />
-    <meta property="og:url" content="https://earnflowservices.com" />
+    <meta property="og:image" content="<?= htmlspecialchars($siteLogoUrl, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta property="og:url" content="<?= $base_url ?>" />
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="<?= htmlspecialchars($siteLogoUrl, ENT_QUOTES, 'UTF-8') ?>">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= $siteDesc ?: 'Earn money online in Kenya through referrals, trivia, and video watching with ' . $siteName . '. Low startup cost and high earning potential. Join now!' ?>">
@@ -83,7 +87,7 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
     <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendors/aos/aos.css" rel="stylesheet">
     <!-- End Styles-->
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= htmlspecialchars($siteLogo, ENT_QUOTES, 'UTF-8') ?>">
     <!-- ======= Theme Style =======-->
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- End Theme Style-->
@@ -100,8 +104,8 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "url": "https://earnflowservices.com",
-      "logo": "https://earnflowservices.com/assets/images/favicon.png",
+      "url": "<?= $base_url ?>",
+      "logo": "<?= htmlspecialchars($siteLogoUrl, ENT_QUOTES, 'UTF-8') ?>",
       "name": <?= json_encode($siteNameDisplay, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?>
     }
     </script>
@@ -126,9 +130,9 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
             
             <!-- If you plan to use an image logo, uncomment this if it is commented-->
             
-            <!-- logo dark--><img class="logo dark img-fluid " src="assets/images/faviconlight.png" alt="favicon logo dark"> 
+            <!-- logo dark--><img class="logo dark img-fluid " src="<?= $siteLogo ?>" alt="favicon logo dark"> 
             
-            <!-- logo light--><img class="logo light img-fluid" src="assets/images/faviconlight.png" alt="favicon logo light">
+            <!-- logo light--><img class="logo light img-fluid" src="<?= $siteLogo ?>" alt="favicon logo light">
             
             </a>
           <!-- End Logo-->
@@ -147,9 +151,9 @@ $lowestPackagePriceDisplay = $lowestPackagePrice !== null ? number_format($lowes
                 <a class="logo-link" id="fbs__net-navbarsLabel" href="index.php">
                   
                   
-                  <!-- logo dark--><img class="logo dark img-fluid" src="assets/images/faviconlight.png" alt="favicon logo dark"> 
+                  <!-- logo dark--><img class="logo dark img-fluid" src="<?= $siteLogo ?>" alt="favicon logo dark"> 
                   
-                  <!-- logo light--><img class="logo light img-fluid" src="assets/images/faviconlight.png" alt="favicon logo light"></a>
+                  <!-- logo light--><img class="logo light img-fluid" src="<?= $siteLogo ?>" alt="favicon logo light"></a>
                 
               </div>
               <button class="btn-close btn-close-black" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>

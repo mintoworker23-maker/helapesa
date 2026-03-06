@@ -192,9 +192,16 @@ function showMessage($message, $type = 'danger') {
                 </div>
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Leaderboard</h5>
+                <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Top 5</span> this month
+                </p>
+              </div>
               <div class="table-responsive">
-                <table class="table align-items-center mb-0">
+                <table class="table table-hover" id="leaderboardTable">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Username</th>

@@ -27,7 +27,7 @@ function isactive($formname, $activeform) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="image/png" href="user\assets\images\favicon.png">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
   <title>
     Earnflow | Login
   </title>
@@ -54,7 +54,7 @@ function isactive($formname, $activeform) {
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../index.html">
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../index.php">
               <img src="assets/images/faviconlight.png">
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +104,7 @@ function isactive($formname, $activeform) {
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0" href="dashboard.html">Sign in</button>
+                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
                 </div>

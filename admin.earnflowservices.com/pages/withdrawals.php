@@ -98,8 +98,11 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<div class="container mt-4">
-    <h4 class="mb-4">Pending Withdrawals</h4>
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="mb-0">Withdrawal Requests</h4>
+        <input type="text" id="searchInput" class="form-control border border-2 px-2 w-auto" placeholder="Search...">
+    </div>
 
     <?php if (isset($_SESSION['admin_message'])): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -109,54 +112,68 @@ $result = $stmt->get_result();
         <?php unset($_SESSION['admin_message']); ?>
     <?php endif; ?>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover align-middle">
-            <thead class="table-dark">
-                <tr>
-                    <th>#</th>
-                    <th>User</th>
-                    <th>Phone</th>
-                    <th>Amount (Ksh)</th>
-                    <th>Requested At</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if ($result->num_rows === 0): ?>
-                    <tr><td colspan="7" class="text-center">No withdrawal requests found.</td></tr>
-                <?php else: ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle" id="withdrawalTable">
+                    <thead>
                         <tr>
-                            <td><?= $row['id'] ?></td>
-                            <td><?= htmlspecialchars($row['username']) ?></td>
-                            <<td><?= htmlspecialchars($row['mpesa_number']) ?></td>
-                            <td><strong>Ksh <?= number_format($row['amount']) ?></strong></td>
-                            <td><?= date('d M Y, h:i A', strtotime($row['requested_at'])) ?></td>
-                            <td><span class="badge bg-<?= $row['status'] === 'pending' ? 'warning' : ($row['status'] === 'approved' ? 'success' : 'danger') ?>">
-                                <?= ucfirst($row['status']) ?></span></td>
-                            <td>
-                                <?php if ($row['status'] === 'pending'): ?>
-                                    <form method="POST" class="d-inline">
-                                        <input type="hidden" name="withdrawal_id" value="<?= $row['id'] ?>">
-                                        <input type="hidden" name="action" value="approve">
-                                        <button class="btn btn-sm btn-success">Approve</button>
-                                    </form>
-                                    <form method="POST" class="d-inline ms-1">
-                                        <input type="hidden" name="withdrawal_id" value="<?= $row['id'] ?>">
-                                        <input type="hidden" name="action" value="reject">
-                                        <button class="btn btn-sm btn-danger">Reject</button>
-                                    </form>
-                                <?php else: ?>
-                                    <em>No actions</em>
-                                <?php endif; ?>
-                            </td>
+                            <th>#</th>
+                            <th>User</th>
+                            <th>Phone</th>
+                            <th>Amount (Ksh)</th>
+                            <th>Requested At</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        <?php if ($result->num_rows === 0): ?>
+                            <tr><td colspan="7" class="text-center py-4">No withdrawal requests found.</td></tr>
+                        <?php else: ?>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                                <tr>
+                                    <td><?= $row['id'] ?></td>
+                                    <td class="username"><?= htmlspecialchars($row['username']) ?></td>
+                                    <td><?= htmlspecialchars($row['mpesa_number']) ?></td>
+                                    <td><strong>Ksh <?= number_format($row['amount']) ?></strong></td>
+                                    <td><?= date('d M Y, h:i A', strtotime($row['requested_at'])) ?></td>
+                                    <td><span class="badge bg-<?= $row['status'] === 'pending' ? 'warning' : ($row['status'] === 'approved' ? 'success' : 'danger') ?>">
+                                        <?= ucfirst($row['status']) ?></span></td>
+                                    <td>
+                                        <?php if ($row['status'] === 'pending'): ?>
+                                            <form method="POST" class="d-inline">
+                                                <input type="hidden" name="withdrawal_id" value="<?= $row['id'] ?>">
+                                                <input type="hidden" name="action" value="approve">
+                                                <button class="btn btn-sm btn-success">Approve</button>
+                                            </form>
+                                            <form method="POST" class="d-inline ms-1">
+                                                <input type="hidden" name="withdrawal_id" value="<?= $row['id'] ?>">
+                                                <input type="hidden" name="action" value="reject">
+                                                <button class="btn btn-sm btn-danger">Reject</button>
+                                            </form>
+                                        <?php else: ?>
+                                            <em>No actions</em>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+document.getElementById("searchInput").addEventListener("keyup", function() {
+    let value = this.value.toLowerCase();
+    let rows = document.querySelectorAll("#withdrawalTable tbody tr");
+    rows.forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(value) ? "" : "none";
+    });
+});
+</script>
 
 <?php require_once '../includes/footer.php'; ?>

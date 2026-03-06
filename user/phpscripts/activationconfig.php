@@ -11,7 +11,7 @@ require_once 'config.php';
 // === Swift-Wallet Settings ===
 $swiftApiKey  = 'a1fab1c0fa6fee5f5b280747fac723bd11bb0d2ec7de88712b9837ed73667953';
 $swiftUrl     = 'https://swiftwallet.co.ke/pay-app-v2/payments.php';
-$callbackUrl  = 'https://earnflowservices.com/user/phpscripts/callback.php';
+$callbackUrl  = $base_url . '/phpscripts/callback.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['status'=>'error','message'=>'Invalid request method']);

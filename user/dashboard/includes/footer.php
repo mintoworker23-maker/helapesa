@@ -60,34 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
      class="position-fixed top-0 start-0 w-100 h-100 d-none" 
      style="z-index: 9998; background: rgba(0,0,0,0.3); transition: opacity 0.3s ease;"></div>
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const toggles = [document.getElementById('themeToggle'), document.getElementById('themeToggleMobile')];
-  const icons = [document.getElementById('themeIcon'), document.getElementById('themeIconMobile')];
-  const root = document.body;
-
-  const savedTheme = localStorage.getItem("theme") || "light";
-  root.setAttribute("data-theme", savedTheme);
-  icons.forEach(icon => {
-    if (icon) icon.textContent = savedTheme === "dark" ? "light_mode" : "dark_mode";
-  });
-
-  toggles.forEach((btn, i) => {
-    if (btn) {
-      btn.addEventListener("click", () => {
-        const isDark = root.getAttribute("data-theme") === "dark";
-        const newTheme = isDark ? "light" : "dark";
-        root.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-        icons.forEach(icon => {
-          if (icon) icon.textContent = newTheme === "dark" ? "light_mode" : "dark_mode";
-        });
-      });
-    }
-  });
-});
-</script>
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();

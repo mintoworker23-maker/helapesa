@@ -58,6 +58,13 @@ try {
         $stmt->bind_param("ii", $reward_amount, $user_id);
         $stmt->execute();
         $stmt->close();
+
+        // Log the transaction
+        $desc = "Trivia reward (Question #{$question_id})";
+        $stmt_log = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description) VALUES (?, ?, 'earn', ?)");
+        $stmt_log->bind_param("ids", $user_id, $reward_amount, $desc);
+        $stmt_log->execute();
+        $stmt_log->close();
     }
 
     $conn->commit();

@@ -71,55 +71,59 @@ while ($row = $result->fetch_assoc()) {
 <div class="container-fluid py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="mb-0">Manual Activations</h4>
-    <div>
-      <input type="text" id="searchInput" class="form-control search-box d-inline-block border border-2 px-2" placeholder="Search username...">
+    <div class="d-flex align-items-center">
+      <input type="text" id="searchInput" class="form-control search-box d-inline-block border border-2 px-2 mb-0 me-2" placeholder="Search username...">
+      <button class="btn btn-sm btn-outline-dark" onclick="exportTableToCSV()">Export CSV</button>
     </div>
-    <button class="btn btn-sm btn-outline-dark ms-2" onclick="exportTableToCSV()">Export CSV</button>
   </div>
 
   <?php if (count($users) > 0): ?>
-    <div class="table-responsive card p-3">
-      <table class="table table-bordered table-hover" id="activationTable">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>Phone</th>
-            <th>Package</th>
-            <th>Amount</th>
-            <th>Payment Method</th>
-            <th>Transaction Code</th>
-            <th>Joined</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="userTable">
-          <?php $count = 1; foreach ($users as $row): ?>
-            <tr>
-              <td><?= $count++ ?></td>
-              <td class="username"><?= htmlspecialchars($row['username']) ?></td>
-              <td><?= htmlspecialchars($row['phone']) ?></td>
-              <td><?= ucfirst($row['package']) ?></td>
-              <td>Ksh <?= number_format($row['amount_paid']) ?></td>
-              <td><?= ucfirst($row['pay_method']) ?></td>
-              <td><strong><?= htmlspecialchars($row['transaction_code']) ?></strong></td>
-              <td><?= date('d M Y', strtotime($row['created_on'])) ?></td>
-              <td>
-                <form method="POST" action="../config/process_activations.php" class="d-inline">
-                  <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
-                  <input type="hidden" name="package" value="<?= $row['package'] ?>">
-                  <input type="hidden" name="amount" value="<?= $row['amount_paid'] ?>">
-                  <button type="submit" name="approve" class="btn btn-sm btn-success" onclick="return confirm('Activate this user?')">Approve</button>
-                </form>
-                <form method="POST" action="../config/process_activations.php" class="d-inline">
-                  <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
-                  <button type="submit" name="reject" class="btn btn-sm btn-danger" onclick="return confirm('Reject this activation?')">Reject</button>
-                </form>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover" id="activationTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Package</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Transaction Code</th>
+                <th>Joined</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="userTable">
+              <?php $count = 1; foreach ($users as $row): ?>
+                <tr>
+                  <td><?= $count++ ?></td>
+                  <td class="username"><?= htmlspecialchars($row['username']) ?></td>
+                  <td><?= htmlspecialchars($row['phone']) ?></td>
+                  <td><?= ucfirst($row['package']) ?></td>
+                  <td>Ksh <?= number_format($row['amount_paid']) ?></td>
+                  <td><?= ucfirst($row['pay_method']) ?></td>
+                  <td><strong><?= htmlspecialchars($row['transaction_code']) ?></strong></td>
+                  <td><?= date('d M Y', strtotime($row['created_on'])) ?></td>
+                  <td>
+                    <form method="POST" action="../config/process_activations.php" class="d-inline">
+                      <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                      <input type="hidden" name="package" value="<?= $row['package'] ?>">
+                      <input type="hidden" name="amount" value="<?= $row['amount_paid'] ?>">
+                      <button type="submit" name="approve" class="btn btn-sm btn-success" onclick="return confirm('Activate this user?')">Approve</button>
+                    </form>
+                    <form method="POST" action="../config/process_activations.php" class="d-inline">
+                      <input type="hidden" name="user_id" value="<?= $row['id'] ?>">
+                      <button type="submit" name="reject" class="btn btn-sm btn-danger" onclick="return confirm('Reject this activation?')">Reject</button>
+                    </form>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="pagination" id="pagination"></div>

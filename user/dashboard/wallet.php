@@ -19,25 +19,38 @@ $stmt->bind_result($balance, $mpesa_number);
 $stmt->fetch();
 $stmt->close();
 
+// Fetch App Controls from Settings
+$requireSpinToggle = getSiteSetting($conn, 'require_spin_withdrawal') === '1';
+$requireReferralToggle = getSiteSetting($conn, 'require_referral_withdrawal') === '1';
+$enableDepositToggle = getSiteSetting($conn, 'enable_deposit') !== '0';
+
 // Eligibility logic
 $requiredSpins = 10;
 $requiredReferrals = 2;
 
 $spinCount = $referralCount = 0;
 
-$stmt = $conn->prepare("SELECT COUNT(*) FROM game_history WHERE user_id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$stmt->bind_result($spinCount);
-$stmt->fetch();
-$stmt->close();
+if ($requireSpinToggle) {
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM game_history WHERE user_id = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($spinCount);
+    $stmt->fetch();
+    $stmt->close();
+}
 
-$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE referred_by = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$stmt->bind_result($referralCount);
-$stmt->fetch();
-$stmt->close();
+if ($requireReferralToggle) {
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE referred_by = ?");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $stmt->bind_result($referralCount);
+    $stmt->fetch();
+    $stmt->close();
+}
+
+$isEligible = true;
+if ($requireSpinToggle && $spinCount < $requiredSpins) $isEligible = false;
+if ($requireReferralToggle && $referralCount < $requiredReferrals) $isEligible = false;
 ?>
 
 <div class="row">
@@ -49,11 +62,15 @@ $stmt->close();
             <h4 class="text-center m-0">Withdraw</h4>
           </div>
 
-          <?php if ($spinCount < $requiredSpins || $referralCount < $requiredReferrals): ?>
+          <?php if (!$isEligible): ?>
             <div class="alert alert-warning mt-3 text-start">
-              <strong>Note:</strong> You must complete at least <?= $requiredSpins ?> spins and refer at least <?= $requiredReferrals ?> users to be eligible for withdrawal.<br>
-              ✅ Spins: <?= $spinCount ?> / <?= $requiredSpins ?><br>
-              ✅ Referrals: <?= $referralCount ?> / <?= $requiredReferrals ?>
+              <strong>Note:</strong> To be eligible for withdrawal, you must meet the following requirements:<br>
+              <?php if ($requireSpinToggle): ?>
+                <?= ($spinCount >= $requiredSpins) ? '✅' : '❌' ?> Spins: <?= $spinCount ?> / <?= $requiredSpins ?><br>
+              <?php endif; ?>
+              <?php if ($requireReferralToggle): ?>
+                <?= ($referralCount >= $requiredReferrals) ? '✅' : '❌' ?> Referrals: <?= $referralCount ?> / <?= $requiredReferrals ?>
+              <?php endif; ?>
             </div>
           <?php endif; ?>
 
@@ -69,11 +86,13 @@ $stmt->close();
               </div>
             </div>
 
+            <?php if ($enableDepositToggle): ?>
             <div class="w-100 w-md-auto">
               <button class="btn btn-lg mt-4 w-100 bg-gradient-dark w-100 w-md-auto" style="min-width: 200px;" data-bs-toggle="modal" data-bs-target="#depositModal">
                 Deposit
               </button>
             </div>
+            <?php endif; ?>
           </div>
         </div>
 
@@ -164,8 +183,12 @@ $stmt->close();
         const amount = parseFloat(amountInput.value.trim());
 
         const balance = <?= $balance ?>;
+        
+        const requireSpin = <?= $requireSpinToggle ? 'true' : 'false' ?>;
         const spinCount = <?= $spinCount ?>;
         const requiredSpins = <?= $requiredSpins ?>;
+        
+        const requireReferral = <?= $requireReferralToggle ? 'true' : 'false' ?>;
         const referralCount = <?= $referralCount ?>;
         const requiredReferrals = <?= $requiredReferrals ?>;
 
@@ -181,13 +204,13 @@ $stmt->close();
           return;
         }
 
-        if (spinCount < requiredSpins) {
+        if (requireSpin && spinCount < requiredSpins) {
           e.preventDefault();
           alertify.error(`You need at least ${requiredSpins} spins.`);
           return;
         }
 
-        if (referralCount < requiredReferrals) {
+        if (requireReferral && referralCount < requiredReferrals) {
           e.preventDefault();
           alertify.error(`You need at least ${requiredReferrals} referrals.`);
           return;

@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Log transaction
         $desc = "Reward for WhatsApp promo (#{$submission['promo_id']})";
-        $type = "credit";
+        $type = "earn";
         $stmt3 = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description, created_at) VALUES (?, ?, ?, ?, NOW())");
         $stmt3->bind_param("iiss", $submission['user_id'], $reward, $type, $desc);
         $stmt3->execute();

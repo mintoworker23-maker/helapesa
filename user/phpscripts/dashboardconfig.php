@@ -37,7 +37,16 @@ if ($user_id) {
   }
   $stmt->close();
 
-  $dashboard_data['total_earned'] = number_format($balance + $withdrawn, 2);
+  // Total Earned from transactions
+  $stmt = $conn->prepare("SELECT SUM(amount) AS total FROM transactions WHERE user_id = ? AND type = 'earn'");
+  $stmt->bind_param("i", $user_id);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  if ($result) {
+    $earned = (float)($result->fetch_assoc()['total'] ?? 0);
+    $dashboard_data['total_earned'] = number_format($earned, 2);
+  }
+  $stmt->close();
 
   $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM referals WHERE referrer_id = ?");
   $stmt->bind_param("i", $user_id);
@@ -57,7 +66,7 @@ if ($user_id) {
   }
   $stmt->close();
 
-  $stmt = $conn->prepare("SELECT DATE(created_at) AS date, SUM(amount) AS total FROM transactions WHERE user_id = ? GROUP BY DATE(created_at) ORDER BY DATE(created_at) DESC LIMIT 7");
+  $stmt = $conn->prepare("SELECT DATE(created_at) AS date, SUM(amount) AS total FROM transactions WHERE user_id = ? AND type = 'earn' GROUP BY DATE(created_at) ORDER BY DATE(created_at) DESC LIMIT 7");
   $stmt->bind_param("i", $user_id);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -81,13 +90,22 @@ if ($user_id) {
   }
   $stmt->close();
 
-  $stmt = $conn->prepare("SELECT username, balance FROM users ORDER BY balance DESC LIMIT 5");
+  // Leaderboard by highest lifetime earnings
+  $stmt = $conn->prepare("
+    SELECT u.username, SUM(t.amount) AS total_earn 
+    FROM transactions t 
+    JOIN users u ON t.user_id = u.id 
+    WHERE t.type = 'earn' 
+    GROUP BY t.user_id 
+    ORDER BY total_earn DESC 
+    LIMIT 5
+  ");
   $stmt->execute();
   $result = $stmt->get_result();
   while ($row = $result->fetch_assoc()) {
     $dashboard_data['leaderboard'][] = [
       'username' => $row['username'],
-      'total' => (float)$row['balance']
+      'total' => (float)$row['total_earn']
     ];
   }
   $stmt->close();

@@ -13,13 +13,34 @@ $user_id = $_SESSION['user_id'];
 include('includes/header.php');
 ?>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<div class="container py-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h3 class="font-weight-bolder mb-0">Like & Earn</h3>
+            <p class="text-muted small mb-0">View ads and like them to earn rewards</p>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-gradient-success">Ksh 50 per like</span>
+        </div>
+    </div>
 
-<div class="container px-3 px-md-4 py-4">
-    <h3 class="mb-4">Like & Earn</h3>
-    <p>Click on a banner to view it, then come back and like it to earn <strong>Ksh 50</strong>. You can like up to <strong>5 ads per day</strong>.</p>
+    <div class="card feature-card mb-4 bg-gradient-dark">
+        <div class="card-body p-4">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h5 class="text-white mb-1">Instructions</h5>
+                    <p class="text-white opacity-8 text-sm mb-0">
+                        1. Click "View Ad" to open the banner.<br>
+                        2. Stay on the ad page for at least 3 seconds.<br>
+                        3. Come back and click the "Like" button to earn <strong>Ksh 50</strong>.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-end d-none d-lg-block">
+                    <span class="material-symbols-rounded text-white opacity-5" style="font-size: 80px;">ads_click</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row" id="adsContainer">
         <?php
@@ -39,19 +60,32 @@ include('includes/header.php');
         $stmt->close();
 
         if ($likes_today >= 5) {
-            echo '<div class="alert alert-info"> You\'ve reached your daily like limit. Check back tomorrow!</div>';
+            echo '<div class="col-12"><div class="alert alert-info border-0 text-white bg-gradient-info">🚀 You\'ve reached your daily like limit (5 ads). Check back tomorrow!</div></div>';
         } elseif (empty($ads)) {
-            echo '<div class="alert alert-warning">No ads available at the moment. Please check back later.</div>';
+            echo '<div class="col-12"><div class="card feature-card p-5 text-center"><p class="text-muted mb-0">No ads available at the moment. Please check back later.</p></div></div>';
         } else {
             foreach ($ads as $ad) {
                 $adId = (int)$ad['id'];
-                echo '<div class="col-12 col-sm-6 col-md-4 mb-4">';
-                echo '<div class="card">';
-                echo '<img src="' . htmlspecialchars($ad['image_url']) . '" class="card-img-top" alt="Ad Banner">';
-                echo '<div class="card-body text-center">';
-                echo '<a href="' . htmlspecialchars($ad['target_url']) . '" target="_blank" class="btn btn-outline-primary w-100 mb-2" onclick="markVisited(' . $adId . ')">View Ad</a>';
-                echo '<button class="btn btn-success w-100" onclick="likeAd(' . $adId . ')" id="likeBtn' . $adId . '" disabled> Like</button>';
-                echo '</div></div></div>';
+                ?>
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="card feature-card h-100">
+                        <div class="position-relative">
+                            <img src="<?= htmlspecialchars($ad['image_url']) ?>" class="card-img-top" alt="Ad Banner" style="height: 180px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 m-2">
+                                <span class="badge bg-white text-dark shadow-sm">Ad #<?= $adId ?></span>
+                            </div>
+                        </div>
+                        <div class="card-body p-3">
+                            <a href="<?= htmlspecialchars($ad['target_url']) ?>" target="_blank" class="btn btn-outline-dark btn-custom w-100 mb-2" onclick="markVisited(<?= $adId ?>)">
+                                <span class="material-symbols-rounded align-middle text-sm me-1">visibility</span> View Ad
+                            </a>
+                            <button class="btn btn-success btn-custom w-100" onclick="likeAd(<?= $adId ?>)" id="likeBtn<?= $adId ?>" disabled>
+                                <span class="material-symbols-rounded align-middle text-sm me-1">thumb_up</span> Like Ad
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <?php
             }
         }
         ?>
@@ -63,10 +97,14 @@ include('includes/header.php');
 
     function markVisited(adId) {
         visitedAds.add(adId);
-        setTimeout(() => {
-            const likeBtn = document.getElementById('likeBtn' + adId);
-            if (likeBtn) likeBtn.disabled = false;
-        }, 3000);
+        const likeBtn = document.getElementById('likeBtn' + adId);
+        if (likeBtn) {
+            likeBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Waiting...';
+            setTimeout(() => {
+                likeBtn.disabled = false;
+                likeBtn.innerHTML = '<span class="material-symbols-rounded align-middle text-sm me-1">thumb_up</span> Like Ad';
+            }, 3000);
+        }
     }
 
     function likeAd(adId) {
@@ -74,6 +112,10 @@ include('includes/header.php');
             alertify.error("Please view the ad before liking.");
             return;
         }
+
+        const btn = document.getElementById('likeBtn' + adId);
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Processing...';
 
         fetch('../phpscripts/submit_like.php', {
             method: 'POST',
@@ -84,13 +126,20 @@ include('includes/header.php');
         .then(data => {
             if (data.success) {
                 alertify.success(data.message);
-                const likeBtn = document.getElementById('likeBtn' + adId);
-                if (likeBtn) likeBtn.disabled = true;
+                btn.innerHTML = '<span class="material-symbols-rounded align-middle text-sm me-1">check_circle</span> Liked';
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-secondary');
             } else {
                 alertify.error(data.message);
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-rounded align-middle text-sm me-1">thumb_up</span> Like Ad';
             }
         })
-        .catch(() => alertify.error("Something went wrong."));
+        .catch(() => {
+            alertify.error("Something went wrong.");
+            btn.disabled = false;
+            btn.innerHTML = '<span class="material-symbols-rounded align-middle text-sm me-1">thumb_up</span> Like Ad';
+        });
     }
 </script>
 

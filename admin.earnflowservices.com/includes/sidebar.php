@@ -13,7 +13,14 @@ $package = strtolower(trim($_SESSION['package'] ?? 'basic'));
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2 bg-white my-2" id="sidenav-main">
   <div class="sidenav-header">
     <a class="navbar-brand px-4 py-3 m-0" href="index.php">
-      <img src="../assets/images/faviconlight.png" class="navbar-brand-img" alt="main_logo" height="30">
+      <?php 
+      $site_logo = getSiteSetting($conn, 'site_logo');
+      $logo_path = "../../uploads/" . $site_logo;
+      if ($site_logo && file_exists(__DIR__ . "/../../uploads/" . $site_logo)): ?>
+        <img src="<?= $logo_path ?>" class="navbar-brand-img" alt="main_logo" height="30">
+      <?php else: ?>
+        <img src="../assets/images/faviconlight.png" class="navbar-brand-img" alt="main_logo" height="30">
+      <?php endif; ?>
     </a>
   </div>
 

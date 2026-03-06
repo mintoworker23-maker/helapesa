@@ -11,6 +11,34 @@ if (!isset($_SESSION['user_id'])) {
 
 // Optional: Fetch current user if needed
 $user = getCurrentUser($conn, $_SESSION['user_id']);
+
+// Fetch Theme Color from Settings
+$themeColor = getSiteSetting($conn, 'theme_color');
+if (!$themeColor) $themeColor = 'black'; // Default
+
+// Define theme-specific styles
+$bgColor = '#f8f9fa';
+$cardBg = '#ffffff';
+$textColor = '#212529';
+
+switch ($themeColor) {
+    case 'darkblue':
+        $primaryGradient = 'linear-gradient(45deg, #1a2035 0%, #323a54 100%)';
+        break;
+    case 'green':
+        $primaryGradient = 'linear-gradient(45deg, #43A047 0%, #66BB6A 100%)';
+        break;
+    case 'purple':
+        $primaryGradient = 'linear-gradient(45deg, #D81B60 0%, #EC407A 100%)';
+        break;
+    case 'red':
+        $primaryGradient = 'linear-gradient(45deg, #E53935 0%, #EF5350 100%)';
+        break;
+    case 'black':
+    default:
+        $primaryGradient = 'linear-gradient(45deg, #191919 0%, #42424a 100%)';
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +59,7 @@ $user = getCurrentUser($conn, $_SESSION['user_id']);
   <!-- Custom Dashboard Styles -->
   <link rel="stylesheet" href="../assets/css/material-dashboard.css" />
 
-  <!-- Font Awesome (if you used it) -->
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 
 <!-- AlertifyJS CSS -->
@@ -44,12 +72,16 @@ $user = getCurrentUser($conn, $_SESSION['user_id']);
 
 <!-- Add this to the head section -->
 <style>
-/* Improved sidebar animation */
-#sidenav-main {
-  background-color: #ffffff !important; /* white for light mode */
+:root {
+    --primary-gradient: <?= $primaryGradient ?>;
+    --theme-bg: <?= $bgColor ?>;
+    --theme-card-bg: <?= $cardBg ?>;
+    --theme-text: <?= $textColor ?>;
 }
 
+/* Improved sidebar animation */
 #sidenav-main {
+  background-color: #ffffff !important;
   transition: transform 0.3s ease-out;
 }
 
@@ -68,6 +100,7 @@ $user = getCurrentUser($conn, $_SESSION['user_id']);
     overflow: hidden;
   }
 }
+
 .logo-light {
   display: none !important;
 }
@@ -75,147 +108,130 @@ $user = getCurrentUser($conn, $_SESSION['user_id']);
   display: inline !important;
 }
 
-body[data-theme='dark'] .logo-light {
-  display: inline !important;
-}
-body[data-theme='dark'] .logo-dark {
-  display: none !important;
-}
-/* Light mode */
+/* Sidebar Active Link */
 #sidenav-main .nav-link.active {
-  background-image: linear-gradient(195deg, #42424a, #191919);
-  color: white !important;
+  background-image: var(--primary-gradient);
+  color: #fff !important;
 }
 
-/* Dark mode */
-body[data-theme='dark'] #sidenav-main .nav-link.active {
-  background-image: linear-gradient(195deg, #323a54, #1a2035);
-  color: white !important;
+#sidenav-main .nav-link.active .nav-link-text,
+#sidenav-main .nav-link.active .material-symbols-rounded {
+  color: #fff !important;
 }
+
 #sidenav-main .nav-link {
-  color: #6c757d;
+  color: var(--theme-text) !important;
 }
 #sidenav-main .nav-link:hover {
   color: #000;
   background-color: #f5f5f5;
 }
 
-/* Dark mode override */
-body[data-theme='dark'] #sidenav-main .nav-link {
-  color: #ddd;
-}
-body[data-theme='dark'] #sidenav-main .nav-link:hover {
-  color: #fff;
-  background-color: #2c2c3c;
-}
-/* Default button */
+/* Button & Icon Styling */
 .btn.bg-gradient-dark, .bg-dark, .btn-dark, .icon, .bg-gradient-dark {
-  background-image: linear-gradient(195deg, #42424a, #191919);
-  color: #fff;
+  background-image: var(--primary-gradient) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
 }
 
-/* In dark mode */
-body[data-theme='dark'] .bg-dark,
-body[data-theme='dark'] .btn-dark,
-body[data-theme='dark'] .icon,
-body[data-theme='dark'] .bg-gradient-dark,
-body[data-theme='dark'] .btn.bg-gradient-dark {
-  background-image: linear-gradient(195deg, #323a54, #1a2035);
-  color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3)
+.btn.btn-outline-dark {
+  border-color: #344767;
+  color: #344767;
 }
 
-body[data-theme='dark'] .btn.btn-outline-dark {
-  border-color: #aaa;
-  color: #ddd;
-}
-.footer {
-  z-index: 1;
-  position: relative;
-}
-body[data-theme='dark'] #sidenav-main {
-  background-color: #1a2035 !important; /* dark sidebar */
-}
-/* Light mode (already default) */
+/* Global Body Styling */
 body {
-  background-color: #ffffff;
-  color: #212529;
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text) !important;
 }
 
-/* Dark mode body + all page text */
-body[data-theme='dark'] {
-  background-color: #1a2035 !important;
-  color: #f1f1f1 !important;
-}
 .navbar, header.navbar-main {
-  background-color: #f5f5f5;
-  color: #212529;
+  background-color: #ffffff !important;
+  color: var(--theme-text) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-body[data-theme='dark'] .navbar,
-body[data-theme='dark'] header.navbar-main {
-  background-color: #1a2035 !important;
-  color: #f1f1f1 !important;
-  border-bottom: 1px solid #333;
-}
 .footer {
-  background-color: #ffffff;
-  color: #212529;
+  background-color: #ffffff !important;
+  color: var(--theme-text) !important;
 }
 
-body[data-theme='dark'] .footer {
-  background-color: #1a2035 !important;
-  color: #f1f1f1 !important;
-  border-top: 1px solid #333;
-}
-body[data-theme='dark'] .card,
-body[data-theme='dark'] input,
-body[data-theme='dark'] .card-header,
-body[data-theme='dark'] .main-content,
-body[data-theme='dark'] .container {
-  background-color: #1a2035 !important;
-  color: #f1f1f1 !important;
-  border-color: #1a2035 ;
-  
-}
-body[data-theme='dark'] .card{
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-body[data-theme='dark'] .bg-gray-100 {
-  background-color: #121212 !important;
+.card, .card-header {
+  background-color: var(--theme-card-bg) !important;
+  color: var(--theme-text) !important;
 }
 
-body[data-theme='dark'] .text-muted {
-  color: #aaa !important;
+.card {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
 }
-/* Default light mode — optional override */
+
+.bg-gray-100 {
+  background-color: #f8f9fa !important;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
 h1, h2, h3, h4, h5, h6, label, p, ::placeholder, .font-weight-bold {
-  color: #212529;
+  color: var(--theme-text) !important;
 }
 
-/* Dark mode headings */
-body[data-theme='dark'] h1,
-body[data-theme='dark'] h2,
-body[data-theme='dark'] h3,
-body[data-theme='dark'] h4,
-body[data-theme='dark'] h5,
-body[data-theme='dark'] .font-weight-bold,
-body[data-theme='dark'] label,
-body[data-theme='dark'] p,
-body[data-theme='dark'] ::placeholder,
-body[data-theme='dark'] h6 {
-  color: #f1f1f1 !important;
+td, th {
+  color: #212529 !important;
 }
 
-body[data-theme='dark'] td,
-body[data-theme='dark'] th {
-  color: #aaa !important;
+input.form-control {
+    background-color: #ffffff !important;
+    color: var(--theme-text) !important;
+    border: 1px solid #d2d6da !important;
+    padding: 10px 15px !important;
+}
+
+input.form-control:focus {
+    border-color: #1A73E8 !important;
+    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2) !important;
+}
+
+/* Custom enhancements for feature pages */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px !important;
+    overflow: hidden;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+.btn-custom {
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-custom:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+}
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 </style>
 
 </head>
 
-<body class="g-sidenav-show bg-gray-100" data-theme="light">
+<body class="g-sidenav-show bg-gray-100">
 
 <?php include 'navbar.php'; ?>
 <?php include 'sidebar.php'; ?>

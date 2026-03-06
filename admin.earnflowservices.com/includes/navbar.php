@@ -9,7 +9,14 @@
         <i class="material-symbols-rounded text-dark fs-4 mt-3">menu</i>
       </button>
       <a class="navbar-brand" href="../pages/index.php">
-        <img src="../assets/images/faviconlight.png" alt="Logo" height="30">
+        <?php 
+        $site_logo = getSiteSetting($conn, 'site_logo');
+        $logo_path = "../../uploads/" . $site_logo;
+        if ($site_logo && file_exists(__DIR__ . "/../../uploads/" . $site_logo)): ?>
+          <img src="<?= $logo_path ?>" alt="Logo" height="30">
+        <?php else: ?>
+          <img src="../assets/images/faviconlight.png" alt="Logo" height="30">
+        <?php endif; ?>
       </a>
     </div>
 

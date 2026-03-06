@@ -51,12 +51,15 @@ $stmt->bind_param("iidi", $user_id, $bet, $multiplier, $win);
 $stmt->execute();
 $stmt->close();
 
-// log into transactions table
-$description = "Spin & Win reward";
-$stmt = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description) VALUES (?, ?, 'earn', ?)");
-$stmt->bind_param("ids", $user_id, $win, $description);
-$stmt->execute();
-$stmt->close();
+// log into transactions table only if there is a profit
+$profit = $win - $bet;
+if ($profit > 0) {
+    $description = "Spin & Win profit";
+    $stmt = $conn->prepare("INSERT INTO transactions (user_id, amount, type, description) VALUES (?, ?, 'earn', ?)");
+    $stmt->bind_param("ids", $user_id, $profit, $description);
+    $stmt->execute();
+    $stmt->close();
+}
 
 
 // Return success

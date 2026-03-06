@@ -16,6 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    // Fetch App Controls from Settings
+    $requireSpinToggle = getSiteSetting($conn, 'require_spin_withdrawal') === '1';
+    $requireReferralToggle = getSiteSetting($conn, 'require_referral_withdrawal') === '1';
+
     // Get user's current balance and mpesa_number
     $stmt = $conn->prepare("SELECT balance, phone FROM users WHERE id = ?");
     $stmt->bind_param("i", $user_id);
@@ -37,6 +41,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['withdraw_error'] = "Your M-Pesa number is not set in your profile.";
         header("Location: ../dashboard/wallet.php");
         exit();
+    }
+
+    // Server-side validation for restrictions
+    if ($requireSpinToggle) {
+        $requiredSpins = 10;
+        $stmt = $conn->prepare("SELECT COUNT(*) FROM game_history WHERE user_id = ?");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $stmt->bind_result($spinCount);
+        $stmt->fetch();
+        $stmt->close();
+
+        if ($spinCount < $requiredSpins) {
+            $_SESSION['withdraw_error'] = "You need at least {$requiredSpins} spins to withdraw.";
+            header("Location: ../dashboard/wallet.php");
+            exit();
+        }
+    }
+
+    if ($requireReferralToggle) {
+        $requiredReferrals = 2;
+        $stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE referred_by = ?");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $stmt->bind_result($referralCount);
+        $stmt->fetch();
+        $stmt->close();
+
+        if ($referralCount < $requiredReferrals) {
+            $_SESSION['withdraw_error'] = "You need at least {$requiredReferrals} referrals to withdraw.";
+            header("Location: ../dashboard/wallet.php");
+            exit();
+        }
     }
 
     // Insert into withdrawals table (status: pending)

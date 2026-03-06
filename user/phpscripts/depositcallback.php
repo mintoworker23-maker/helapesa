@@ -38,7 +38,7 @@ try {
     $user_id = $user['id'];
 
     // Get user's last balance
-    $stmt = $conn->prepare("SELECT balance_after FROM transaction WHERE user_id = ? ORDER BY id DESC LIMIT 1");
+    $stmt = $conn->prepare("SELECT balance_after FROM transactions WHERE user_id = ? ORDER BY id DESC LIMIT 1");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -48,9 +48,9 @@ try {
     // Calculate new balance
     $new_balance = $previous_balance + $amount;
 
-    // Insert into transaction table
-    $insert = $conn->prepare("INSERT INTO transaction (user_id, type, source, amount, description, status, balance_after, created_at) 
-                              VALUES (?, 'earn', 'deposit', ?, ?, 'completed', ?, NOW())");
+    // Insert into transactions table
+    $insert = $conn->prepare("INSERT INTO transactions (user_id, type, source, amount, description, status, balance_after, created_at) 
+                              VALUES (?, 'deposit', 'deposit', ?, ?, 'completed', ?, NOW())");
     $desc = "Deposit via MPESA Ref: $reference";
     $insert->bind_param("idssd", $user_id, $amount, $desc, $new_balance);
     $insert->execute();

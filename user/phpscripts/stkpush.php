@@ -3,6 +3,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+require_once 'config.php';
+
 // Read from POST (you can test using Postman or a simple form)
 $phone = $_POST['phone'] ?? null;
 $amount = $_POST['amount'] ?? $_POST['price'] ?? null;
@@ -29,7 +31,7 @@ $data = [
     "amount" => $amount,
     "reference" => $reference,
     "description" => $description,
-    "callback_url" => "https://earnflowservices.com/user/phpscripts/callback.php" // Change this to match your real callback URL
+    "callback_url" => $base_url . "/phpscripts/callback.php" // Change this to match your real callback URL
 ];
 
 // Make cURL request

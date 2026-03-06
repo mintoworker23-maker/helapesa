@@ -106,40 +106,42 @@ while ($row = $chartData->fetch_assoc()) {
   <!-- TABLES -->
     <div class="col-12 mb-4">
     <div class="card">
-      <div class="card-header">
-        <h6>Newly Registered Users</h6>
-      </div>
-      <div class="card-body table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead class="table-light">
-            <tr>
-              <th>#</th>
-              <th>Username</th>
-              <th>Phone</th>
-              <th>Date Registered</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            $i = 1;
-            $latestUsers = $conn->query("SELECT username, phone, created_on, is_active FROM users ORDER BY created_on DESC LIMIT 5");
-            while ($user = $latestUsers->fetch_assoc()):
-            ?>
-            <tr>
-              <td><?= $i++ ?></td>
-              <td><?= htmlspecialchars($user['username']) ?></td>
-              <td><?= htmlspecialchars($user['phone']) ?></td>
-              <td><?= date('d M Y', strtotime($user['created_on'])) ?></td>
-              <td>
-                <span class="badge bg-<?= $user['is_active'] ? 'success' : 'secondary' ?>">
-                  <?= $user['is_active'] ? 'Active' : 'Inactive' ?>
-                </span>
-              </td>
-            </tr>
-            <?php endwhile; ?>
-          </tbody>
-        </table>
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0">Newly Registered Users</h6>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Phone</th>
+                <th>Date Registered</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $i = 1;
+              $latestUsers = $conn->query("SELECT username, phone, created_on, is_active FROM users ORDER BY created_on DESC LIMIT 5");
+              while ($user = $latestUsers->fetch_assoc()):
+              ?>
+              <tr>
+                <td><?= $i++ ?></td>
+                <td><?= htmlspecialchars($user['username']) ?></td>
+                <td><?= htmlspecialchars($user['phone']) ?></td>
+                <td><?= date('d M Y', strtotime($user['created_on'])) ?></td>
+                <td>
+                  <span class="badge bg-<?= $user['is_active'] ? 'success' : 'secondary' ?>">
+                    <?= $user['is_active'] ? 'Active' : 'Inactive' ?>
+                  </span>
+                </td>
+              </tr>
+              <?php endwhile; ?>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     </div>
@@ -147,43 +149,45 @@ while ($row = $chartData->fetch_assoc()) {
 
     <div class="col-12 mb-4">
       <div class="card">
-        <div class="card-header">
-          <h6>Recent Pending Withdrawals</h6>
-        </div>
-        <div class="card-body table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead class="table-light">
-              <tr>
-                <th>#</th>
-                <th>User</th>
-                <th>M-Pesa</th>
-                <th>Amount</th>
-                <th>Requested At</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $i = 1;
-              $withdrawals = $conn->query("
-                SELECT w.id, w.amount, w.requested_at, u.phone, u.username 
-                FROM withdrawals w 
-                JOIN users u ON u.id = w.user_id 
-                WHERE w.status = 'pending' 
-                ORDER BY w.requested_at DESC 
-                LIMIT 5
-              ");
-              while ($w = $withdrawals->fetch_assoc()):
-              ?>
-              <tr>
-                <td><?= $i++ ?></td>
-                <td><?= htmlspecialchars($w['username']) ?></td>
-                <td><?= htmlspecialchars($w['phone']) ?></td>
-                <td>Ksh <?= number_format($w['amount']) ?></td>
-                <td><?= date('d M Y, h:i A', strtotime($w['requested_at'])) ?></td>
-              </tr>
-              <?php endwhile; ?>
-            </tbody>
-          </table>
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0">Recent Pending Withdrawals</h6>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>M-Pesa</th>
+                  <th>Amount</th>
+                  <th>Requested At</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $i = 1;
+                $withdrawals = $conn->query("
+                  SELECT w.id, w.amount, w.requested_at, u.phone, u.username 
+                  FROM withdrawals w 
+                  JOIN users u ON u.id = w.user_id 
+                  WHERE w.status = 'pending' 
+                  ORDER BY w.requested_at DESC 
+                  LIMIT 5
+                ");
+                while ($w = $withdrawals->fetch_assoc()):
+                ?>
+                <tr>
+                  <td><?= $i++ ?></td>
+                  <td><?= htmlspecialchars($w['username']) ?></td>
+                  <td><?= htmlspecialchars($w['phone']) ?></td>
+                  <td>Ksh <?= number_format($w['amount']) ?></td>
+                  <td><?= date('d M Y, h:i A', strtotime($w['requested_at'])) ?></td>
+                </tr>
+                <?php endwhile; ?>
+              </tbody>
+            </table>
+          </div>
           <div class="text-end mt-2">
             <a href="withdrawals.php" class="btn btn-sm btn-outline-primary">View All Withdrawals</a>
           </div>
@@ -194,44 +198,46 @@ while ($row = $chartData->fetch_assoc()) {
 
 <div class="col-12 mb-4">
   <div class="card">
-    <div class="card-header">
-      <h6>Pending Manual Activations</h6>
-    </div>
-    <div class="card-body table-responsive">
-      <table class="table table-bordered table-hover">
-        <thead class="table-light">
-          <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>Phone</th>
-            <th>Package</th>
-            <th>Amount Paid</th>
-            <th>Tx Code</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $i = 1;
-          $activations = $conn->query("
-            SELECT username, phone, package, amount_paid, transaction_code 
-            FROM users 
-            WHERE is_active = 0 AND pay_method = 'manual' 
-            ORDER BY created_on DESC 
-            LIMIT 5
-          ");
-          while ($u = $activations->fetch_assoc()):
-          ?>
-          <tr>
-            <td><?= $i++ ?></td>
-            <td><?= htmlspecialchars($u['username']) ?></td>
-            <td><?= htmlspecialchars($u['phone']) ?></td>
-            <td><?= strtoupper($u['package']) ?></td>
-            <td>Ksh <?= number_format($u['amount_paid']) ?></td>
-            <td><?= htmlspecialchars($u['transaction_code']) ?></td>
-          </tr>
-          <?php endwhile; ?>
-        </tbody>
-      </table>
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="mb-0">Pending Manual Activations</h6>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Phone</th>
+              <th>Package</th>
+              <th>Amount Paid</th>
+              <th>Tx Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $i = 1;
+            $activations = $conn->query("
+              SELECT username, phone, package, amount_paid, transaction_code 
+              FROM users 
+              WHERE is_active = 0 AND pay_method = 'manual' 
+              ORDER BY created_on DESC 
+              LIMIT 5
+            ");
+            while ($u = $activations->fetch_assoc()):
+            ?>
+            <tr>
+              <td><?= $i++ ?></td>
+              <td><?= htmlspecialchars($u['username']) ?></td>
+              <td><?= htmlspecialchars($u['phone']) ?></td>
+              <td><?= strtoupper($u['package']) ?></td>
+              <td>Ksh <?= number_format($u['amount_paid']) ?></td>
+              <td><?= htmlspecialchars($u['transaction_code']) ?></td>
+            </tr>
+            <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
       <div class="text-end mt-2">
         <a href="activations.php" class="btn btn-sm btn-outline-primary">Review All Activations</a>
       </div>

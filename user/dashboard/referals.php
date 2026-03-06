@@ -65,13 +65,13 @@ include('includes/header.php');
             </div>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control border border-2 border-dark px-2" style="height:45px;" value="https://earnflowservices.com/user/register.php?ref=<?= $_SESSION['username'] ?>" id="refLink" readonly>
+                <input type="text" class="form-control border border-2 border-dark px-2" style="height:45px;" value="<?= htmlspecialchars($referral_data['referral_link']) ?>" id="refLink" readonly>
                 <button class="btn btn-primary btn-dark" style="height:45px;" onclick="copyReferral()">Copy Link</button>
             </div>
 
             <!-- Social Sharing -->
             <div class="d-flex gap-3">
-                <!-- Social sharing buttons -->
+                <!-- Social sharing buttons (omitted for brevity as they were not in the original either) -->
             </div>
         </div>
     </div>
@@ -97,8 +97,6 @@ include('includes/header.php');
                 </div>
             </div>
         </div>
-        
-        <!-- Withdrawn card -->
     </div>
 
     <!-- Referral Table -->
@@ -106,7 +104,7 @@ include('includes/header.php');
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="mb-0">Your Referrals</h5>
-                <input type="text" id="searchInput" placeholder="Search...">
+                <input type="text" id="searchInput" placeholder="Search..." class="form-control w-25">
             </div>
 
             <div class="table-responsive">
@@ -131,7 +129,11 @@ include('includes/header.php');
                                     <td><?= date('M d, Y', strtotime($user['created_on'])) ?></td>
                                     <td>Ksh <?= number_format($user['bonus_amount'], 2) ?></td>
                                     <td>
-                                        <span class="badge bg-success">Active</span>
+                                        <?php if ($user['is_active'] == 1): ?>
+                                            <span class="badge bg-success">Active</span>
+                                        <?php else: ?>
+                                            <span class="badge bg-warning text-dark">Pending</span>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -154,52 +156,51 @@ include('includes/header.php');
     
     <script>
     // JavaScript functions for copy and search
-    document.getElementById("searchInput").addEventListener("keyup", function() {
-    let value = this.value.toLowerCase();
-    let rows = document.querySelectorAll("#referralTable tbody tr");
-    rows.forEach(row => {
-        row.style.display = row.textContent.toLowerCase().includes(value) ? "" : "none";
-    });
-});
-    </script>
-<script>
-function copyReferral() {
-    const input = document.getElementById("refLink");
-    const value = input.value;
-
-    // Try Clipboard API
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(value).then(() => {
-            alertify.success("Referral link copied!");
-        }).catch(err => {
-            fallbackCopy();
+    document.getElementById("searchInput")?.addEventListener("keyup", function() {
+        let value = this.value.toLowerCase();
+        let rows = document.querySelectorAll("#referralTable tbody tr");
+        rows.forEach(row => {
+            row.style.display = row.textContent.toLowerCase().includes(value) ? "" : "none";
         });
-    } else {
-        fallbackCopy();
-    }
+    });
 
-    function fallbackCopy() {
-        // Create temporary input
-        const tempInput = document.createElement("input");
-        tempInput.value = value;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); // for iOS
+    function copyReferral() {
+        const input = document.getElementById("refLink");
+        const value = input.value;
 
-        try {
-            const copied = document.execCommand("copy");
-            if (copied) {
+        // Try Clipboard API
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(value).then(() => {
                 alertify.success("Referral link copied!");
-            } else {
-                alertify.error("Failed to copy. Please copy manually.");
-            }
-        } catch (err) {
-            alertify.error("Copy not supported.");
+            }).catch(err => {
+                fallbackCopy();
+            });
+        } else {
+            fallbackCopy();
         }
 
-        document.body.removeChild(tempInput);
+        function fallbackCopy() {
+            // Create temporary input
+            const tempInput = document.createElement("input");
+            tempInput.value = value;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // for iOS
+
+            try {
+                const copied = document.execCommand("copy");
+                if (copied) {
+                    alertify.success("Referral link copied!");
+                } else {
+                    alertify.error("Failed to copy. Please copy manually.");
+                }
+            } catch (err) {
+                alertify.error("Copy not supported.");
+            }
+
+            document.body.removeChild(tempInput);
+        }
     }
-}
-</script>
+    </script>
     <?php include('includes/footer.php'); ?>
 </div>

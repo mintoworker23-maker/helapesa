@@ -9,17 +9,21 @@
         <i class="material-symbols-rounded fs-4 mt-3">menu</i>
       </button>
       <a class="navbar-brand" href="../dashboard/index.php">
-        <img src="../assets/images/faviconlight.png" alt="Logo" class="logo-dark" height="30">
-        <img src="../assets/images/favicondark.jpg.png" alt="Logo" class="logo-light" height="30">
+        <?php 
+        $site_logo = getSiteSetting($conn, 'site_logo');
+        $logo_path = "../../uploads/" . $site_logo;
+        if ($site_logo && file_exists(__DIR__ . "/../../../uploads/" . $site_logo)): ?>
+          <img src="<?= $logo_path ?>" alt="Logo" class="logo-dark" height="30">
+          <img src="<?= $logo_path ?>" alt="Logo" class="logo-light" height="30">
+        <?php else: ?>
+          <img src="../assets/images/faviconlight.png" alt="Logo" class="logo-dark" height="30">
+          <img src="../assets/images/favicondark.jpg.png" alt="Logo" class="logo-light" height="30">
+        <?php endif; ?>
       </a>
     </div>
 
-    <!-- Right: Theme Toggle, Settings, Profile -->
+    <!-- Right: Settings, Profile -->
     <div class="d-flex align-items-center">
-      <!-- Dark Mode Toggle -->
-      <button class="btn p-0 me-3 mt-2" id="themeToggleMobile" title="Toggle Theme">
-        <i class="material-symbols-rounded fs-4" id="themeIconMobile">dark_mode</i>
-      </button>
       <a href="../dashboard/settings.php" class="btn p-0 me-3 mt-2">
         <i class="material-symbols-rounded fs-4">settings</i>
       </a>
@@ -37,12 +41,6 @@
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
       </div>
       <ul class="navbar-nav d-flex align-items-center justify-content-end">
-        <!-- Dark Mode Toggle -->
-        <li class="nav-item px-3 d-flex align-items-center mt-3">
-          <button class="btn p-0" id="themeToggle" title="Toggle Theme">
-            <i class="material-symbols-rounded fs-4" id="themeIcon">dark_mode</i>
-          </button>
-        </li>
         <li class="nav-item px-3 d-flex align-items-center">
           <a href="../dashboard/settings.php" class="nav-link text-body p-0">
             <i class="material-symbols-rounded">settings</i>
