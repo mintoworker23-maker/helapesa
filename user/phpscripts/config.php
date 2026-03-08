@@ -91,7 +91,7 @@ function getDashboardData($conn, $user_id) {
 
     try {
         // Current balance
-        $stmt = $conn->prepare("SELECT commission AS current_balance FROM users WHERE id = ?");
+        $stmt = $conn->prepare("SELECT balance AS current_balance FROM users WHERE id = ?");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $result = $stmt->get_result();

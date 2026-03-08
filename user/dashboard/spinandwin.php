@@ -28,14 +28,15 @@ if (!$canAccessSpinWin) {
   exit();
 }
 
-// Fetch user balance from the database
+// Fetch user balance and free spins from the database
 $user_id = $_SESSION['user_id'];
 $balance = 0;
+$free_spins = 0;
 
-$stmt = $conn->prepare("SELECT balance FROM users WHERE id = ?");
+$stmt = $conn->prepare("SELECT balance, free_spins FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$stmt->bind_result($balance);
+$stmt->bind_result($balance, $free_spins);
 $stmt->fetch();
 $stmt->close();
 
@@ -60,6 +61,12 @@ $stmt->close();
         <div class="col-12 text-center mb-4">
             <h2 class="font-weight-bolder">Fortune Spin Wheel</h2>
             <p class="text-muted">Test your luck and win big with our fortune wheel!</p>
+            <?php if ($free_spins > 0): ?>
+                <div id="freeSpinsBadge" class="badge bg-gradient-success p-2 px-3">
+                    <i class="material-symbols-rounded align-middle me-1">redeem</i>
+                    You have <span id="freeSpinsCount"><?= $free_spins ?></span> Free Spins!
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -98,11 +105,14 @@ $stmt->close();
                     
                     <div class="form-group mb-3 text-start">
                         <label for="betAmount" class="form-label font-weight-bold">Enter Your Bet (Ksh)</label>
-                        <input type="number" id="betAmount" placeholder="e.g. 20" min="1" class="form-control" />
+                        <input type="number" id="betAmount" placeholder="e.g. 20" min="1" class="form-control" <?= $free_spins > 0 ? 'disabled value="0"' : '' ?> />
+                        <?php if ($free_spins > 0): ?>
+                            <small class="text-success" id="freeSpinNote">Using Free Spin - No bet required!</small>
+                        <?php endif; ?>
                     </div>
                     
-                    <button id="spinBtn" class="btn btn-dark btn-custom w-100 mt-2">
-                        <span class="material-symbols-rounded align-middle me-1">autorenew</span> SPIN NOW
+                    <button id="spinBtn" class="btn btn-dark btn-custom w-100 mt-2" data-free="<?= $free_spins ?>">
+                        <span class="material-symbols-rounded align-middle me-1">autorenew</span> <?= $free_spins > 0 ? 'USE FREE SPIN' : 'SPIN NOW' ?>
                     </button>
                 </div>
             </div>
@@ -187,20 +197,28 @@ let theWheel = new Winwheel({
 });
 
 let betAmount = 0;
+let isFreeSpin = false;
 
 document.getElementById('spinBtn').addEventListener('click', function () {
-  betAmount = parseFloat(document.getElementById('betAmount').value);
-  let currentBalanceStr = document.getElementById('currentBalance').innerText.replace(/,/g, '');
-  let currentBalance = parseFloat(currentBalanceStr);
+  const freeSpinsLeft = parseInt(this.getAttribute('data-free') || '0');
+  isFreeSpin = freeSpinsLeft > 0;
 
-  if (!betAmount || betAmount <= 0) {
-    alertify.error("Please enter a valid bet.");
-    return;
-  }
+  if (!isFreeSpin) {
+    betAmount = parseFloat(document.getElementById('betAmount').value);
+    let currentBalanceStr = document.getElementById('currentBalance').innerText.replace(/,/g, '');
+    let currentBalance = parseFloat(currentBalanceStr);
 
-  if (betAmount > currentBalance) {
-    alertify.error("You don’t have enough balance to place this bet.");
-    return;
+    if (!betAmount || betAmount <= 0) {
+      alertify.error("Please enter a valid bet.");
+      return;
+    }
+
+    if (betAmount > currentBalance) {
+      alertify.error("You don’t have enough balance to place this bet.");
+      return;
+    }
+  } else {
+    betAmount = 0; // It's free
   }
 
   const btn = this;

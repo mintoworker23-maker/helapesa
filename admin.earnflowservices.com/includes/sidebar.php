@@ -1,7 +1,11 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
 $currentPage = basename($_SERVER['PHP_SELF']);
-$isVideoPage = in_array($currentPage, ['youtube_videos.php', 'add_video.php']);
+$isVideoPage = in_array($currentPage, ['youtube_videos.php', 'add_video.php', 'tiktok_videos.php', 'add_tiktok_video.php']);
+$isEbookPage = in_array($currentPage, ['ebooks.php', 'add_ebook.php']);
+$isForexPage = in_array($currentPage, ['forex_lessons.php', 'add_forex_lesson.php']);
+$isBonusPage = in_array($currentPage, ['bonuses.php', 'add_bonus.php']);
+$isNotifPage = in_array($currentPage, ['notifications.php']);
 $isTriviaPage = in_array($currentPage, ['trivia_list.php', 'trivias.php']);
 $isSocialPage = in_array($currentPage, ['socialmediaads.php', 'reviewads.php', 'add_whatsapp.php']);
 $isUsersPage = in_array($currentPage, ['users.php', 'user_detail.php']);
@@ -43,6 +47,20 @@ $package = strtolower(trim($_SESSION['package'] ?? 'basic'));
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link <?= $isNotifPage ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/notifications.php">
+          <i class="material-symbols-rounded opacity-5">notifications</i>
+          <span class="nav-link-text ms-1">Notifications</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link <?= $isBonusPage ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/bonuses.php">
+          <i class="material-symbols-rounded opacity-5">card_giftcard</i>
+          <span class="nav-link-text ms-1">Bonuses</span>
+        </a>
+      </li>
+
       <!--?php if (in_array($package, ['silver', 'gold', 'premium'])):?-->
       <li class="nav-item">
         <a class="nav-link <?= $currentPage == 'activations.php' ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/activations.php">
@@ -61,9 +79,27 @@ $package = strtolower(trim($_SESSION['package'] ?? 'basic'));
 
       <!--?php if (in_array($package, ['gold', 'premium'])):?-->
       <li class="nav-item">
-        <a class="nav-link <?= $isVideoPage ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/youtube_videos.php">
-          <i class="material-symbols-rounded opacity-5">crossword</i>
+        <a class="nav-link <?= ($currentPage == 'youtube_videos.php' || $currentPage == 'add_video.php') ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/youtube_videos.php">
+          <i class="material-symbols-rounded opacity-5">video_library</i>
           <span class="nav-link-text ms-1">Youtube Videos</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($currentPage == 'tiktok_videos.php' || $currentPage == 'add_tiktok_video.php') ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/tiktok_videos.php">
+          <i class="material-symbols-rounded opacity-5">movie</i>
+          <span class="nav-link-text ms-1">TikTok Videos</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= $isEbookPage ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/ebooks.php">
+          <i class="material-symbols-rounded opacity-5">book</i>
+          <span class="nav-link-text ms-1">Ebooks</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= $isForexPage ? 'bg-gradient-dark text-white' : 'text-dark' ?>" href="../pages/forex_lessons.php">
+          <i class="material-symbols-rounded opacity-5">trending_up</i>
+          <span class="nav-link-text ms-1">Forex Lessons</span>
         </a>
       </li>
       <!--?php endif;?-->
@@ -102,7 +138,6 @@ $package = strtolower(trim($_SESSION['package'] ?? 'basic'));
 
   <div class="sidenav-footer position-absolute w-100 bottom-0">
     <div class="mx-3">
-      <a class="btn btn-outline-dark mt-4 w-100" href="https://dashboard.tawk.to/#/chat">Chat</a>
       <a class="btn bg-gradient-dark w-100" href="../logout.php">Log Out</a>
     </div>
   </div>

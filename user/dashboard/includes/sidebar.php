@@ -131,8 +131,26 @@ if (isset($conn)) {
       <?php if ($pkg_access_youtube): ?>
       <li class="nav-item">
         <a class="nav-link <?= $currentPage == 'youtube.php' ? 'active' : '' ?>" href="youtube.php">
-          <i class="material-symbols-rounded opacity-5">youtube_activity</i>
+          <i class="material-symbols-rounded opacity-5">video_library</i>
           <span class="nav-link-text ms-1">YouTube Videos</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= $currentPage == 'tiktok.php' ? 'active' : '' ?>" href="tiktok.php">
+          <i class="material-symbols-rounded opacity-5">movie</i>
+          <span class="nav-link-text ms-1">TikTok Videos</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= $currentPage == 'ebooks.php' ? 'active' : '' ?>" href="ebooks.php">
+          <i class="material-symbols-rounded opacity-5">book</i>
+          <span class="nav-link-text ms-1">Business Ebooks</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= $currentPage == 'forex.php' ? 'active' : '' ?>" href="forex.php">
+          <i class="material-symbols-rounded opacity-5">trending_up</i>
+          <span class="nav-link-text ms-1">Forex Lessons</span>
         </a>
       </li>
       <?php endif; ?>
@@ -150,7 +168,6 @@ if (isset($conn)) {
 
   <div class="sidenav-footer position-absolute w-100 bottom-0">
     <div class="mx-3">
-      <a class="btn btn-outline-dark mt-4 w-100" href="#" onclick="if(window.Tawk_API){Tawk_API.maximize();} return false;">Customer Care</a>
       <a class="btn bg-gradient-dark w-100" href="../logout.php">Log Out</a>
     </div>
   </div>

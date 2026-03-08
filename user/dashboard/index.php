@@ -24,6 +24,19 @@ if (!isset($_SESSION['activated']) || $_SESSION['activated'] !== true) {
     exit();
 }
 
+$user_id = $_SESSION['user_id'];
+
+// Fetch Active Notifications
+$notifications = $conn->query("SELECT message FROM notifications WHERE is_active = 1 ORDER BY created_at DESC LIMIT 3");
+
+// Fetch Active Bonuses not yet claimed by user
+$bonuses = $conn->query("
+    SELECT * FROM scheduled_bonuses 
+    WHERE status = 'active' 
+    AND start_time <= NOW() AND end_time > NOW()
+    AND id NOT IN (SELECT bonus_id FROM claimed_bonuses WHERE user_id = $user_id)
+");
+
 function showMessage($message, $type = 'danger') {
     return !empty($message) ? "<div id='login-alert' class='alert alert-{$type}' role='alert'>{$message}</div>" : '';
 }
@@ -43,9 +56,50 @@ function showMessage($message, $type = 'danger') {
         <div class="ms-3">
           <h3 class="mb-0 h4 font-weight-bolder">Dashboard</h3>
           <p class="mb-4">
-            Check the sales, value and bounce rate by country.
+            Welcome back! Check your progress and latest updates.
           </p>
         </div>
+
+        <!-- 📢 Notifications & Bonuses Section -->
+        <div class="col-12 mb-4">
+            <?php if ($notifications->num_rows > 0 || $bonuses->num_rows > 0): ?>
+                <?php while ($notif = $notifications->fetch_assoc()): ?>
+                    <div class="alert alert-info alert-dismissible text-white fade show border-0 shadow-sm mb-2" role="alert">
+                        <span class="alert-icon align-middle me-2">
+                            <i class="material-symbols-rounded text-md">notifications</i>
+                        </span>
+                        <span class="alert-text"><strong>Announcement:</strong> <?= htmlspecialchars($notif['message']) ?></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endwhile; ?>
+
+                <?php while ($bonus = $bonuses->fetch_assoc()): ?>
+                    <div class="alert alert-success alert-dismissible text-white fade show border-0 shadow-sm mb-2" role="alert">
+                        <span class="alert-icon align-middle me-2">
+                            <i class="material-symbols-rounded text-md">card_giftcard</i>
+                        </span>
+                        <span class="alert-text"><strong>Bonus:</strong> <?= htmlspecialchars($bonus['title']) ?> (<?= $bonus['type'] == 'free_spin' ? (int)$bonus['amount'].' Free Spins' : 'Ksh '.number_format($bonus['amount'], 2) ?>)</span>
+                        <form method="POST" action="../phpscripts/claim_bonus.php" style="display:inline;">
+                            <input type="hidden" name="bonus_id" value="<?= $bonus['id'] ?>">
+                            <button type="submit" class="btn btn-sm btn-white ms-3 mb-0">Claim Now</button>
+                        </form>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <div class="alert alert-light border-0 shadow-sm mb-2" role="alert">
+                    <span class="alert-text text-dark">
+                        <i class="material-symbols-rounded text-md align-middle me-2">info</i>
+                        Want to earn more? Try our <strong><a href="tiktok.php" class="text-dark border-bottom">TikTok Videos</a></strong> or <strong><a href="trivia.php" class="text-dark border-bottom">Trivia</a></strong> section!
+                    </span>
+                </div>
+            <?php endif; ?>
+        </div>
+
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
           <div class="card">
             <div class="card-header p-2 ps-3">

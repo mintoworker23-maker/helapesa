@@ -21,27 +21,35 @@ $bet = intval($data['bet']);
 $multiplier = floatval($data['multiplier']);
 $win = intval($data['win']);
 
-// Fetch current balance
-$stmt = $conn->prepare("SELECT balance FROM users WHERE id = ?");
+// Fetch current balance and free spins
+$stmt = $conn->prepare("SELECT balance, free_spins FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
-$stmt->bind_result($current_balance);
+$stmt->bind_result($current_balance, $free_spins);
 if (!$stmt->fetch()) {
     echo json_encode(['status' => 'error', 'message' => 'User not found']);
     exit;
 }
 $stmt->close();
 
-// Check for enough balance
-if ($current_balance < $bet) {
+$is_free_spin = ($bet == 0 && $free_spins > 0);
+
+// Check for enough balance or free spin
+if (!$is_free_spin && $current_balance < $bet) {
     echo json_encode(['status' => 'error', 'message' => 'Insufficient balance']);
     exit;
 }
 
-// Update user balance
-$new_balance = $current_balance - $bet + $win;
-$stmt = $conn->prepare("UPDATE users SET balance = ? WHERE id = ?");
-$stmt->bind_param("ii", $new_balance, $user_id);
+// Update user balance and free spins
+if ($is_free_spin) {
+    $new_balance = $current_balance + $win;
+    $stmt = $conn->prepare("UPDATE users SET balance = ?, free_spins = free_spins - 1 WHERE id = ?");
+    $stmt->bind_param("di", $new_balance, $user_id);
+} else {
+    $new_balance = $current_balance - $bet + $win;
+    $stmt = $conn->prepare("UPDATE users SET balance = ? WHERE id = ?");
+    $stmt->bind_param("di", $new_balance, $user_id);
+}
 $stmt->execute();
 $stmt->close();
 
