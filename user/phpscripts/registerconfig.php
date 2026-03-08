@@ -19,13 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     // Basic validation
     if ($password !== $confirm_password) {
         $_SESSION['register_error'] = "Passwords do not match!";
-        header("Location: ../register.php");
+        header("Location: ../login.php");
         exit;
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['register_error'] = "Invalid email address.";
-        header("Location: ../register.php");
+        header("Location: ../login.php");
         exit;
     }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
         $_SESSION['register_error'] = "Email already exists.";
-        header("Location: ../register.php");
+        header("Location: ../login.php");
         exit;
     }
     $stmt->close();
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $stmt->store_result();
     if ($stmt->num_rows > 0) {
         $_SESSION['register_error'] = "Username or phone already in use.";
-        header("Location: ../register.php");
+        header("Location: ../login.php");
         exit;
     }
     $stmt->close();
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
             $grand_referrer = $referrer_data['referred_by'] ?? null;
         } else {
             $_SESSION['register_error'] = "Invalid referral code.";
-            header("Location: ../register.php");
+            header("Location: ../login.php");
             exit;
         }
         $stmt->close();
@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         exit;
     } else {
         $_SESSION['register_error'] = "Registration failed. Please try again.";
-        header("Location: ../register.php");
+        header("Location: ../login.php");
         exit;
     }
 }
